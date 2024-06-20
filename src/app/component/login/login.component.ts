@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
+import { UserService } from '../../service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,24 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  public login_form : FormGroup;
+  show_password : boolean = false;
+  username : string = "";
+  password : string = "";
 
-  constructor(private fb : FormBuilder){
-    this.login_form = this.fb.group({})
+  constructor(private user_service : UserService, private router : Router){
+
   }
+
+  login() : void {
+    this.user_service.getUsers().subscribe( data => {
+      for (let index = 0; index < data.length; index++) {
+        if (data[index].username == this.username && data[index].password == this.password) {
+          this.router.navigate(['/caja']);
+          break;
+        }
+      }
+    })
+  }
+  
+
 }

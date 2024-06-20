@@ -29,22 +29,22 @@
             <div class="row spacer-5"></div>
             <div class="row px-4">
               <div class="col">
-                <input type="text" class="form-control" placeholder="Nombre de usuario" aria-label="nombre de usuario">
+                <input type="text" class="form-control" placeholder="Nombre de usuario" aria-label="nombre de usuario" [(ngModel)]="username">
               </div>
             </div>
             <div class="row spacer-3"></div>
             <div class="row px-4">
               <div class="col">
                 <div class="input-group">
-                  <input type="password" class="form-control" placeholder="Contraseña" aria-label="nombre de usuario" aria-describedby="button-addon-password" id="password-input">
-                  <button type="button" class="btn btn-outline-secondary  " id="button-addon-password"><i class="fa-solid fa-eye"></i></button>
+                  <input [type]="show_password ? 'text' : 'password'" class="form-control" placeholder="Contraseña" aria-label="nombre de usuario" aria-describedby="button-addon-password" id="password-input" [(ngModel)]="password">
+                  <button type="button" class="btn btn-outline-secondary  " id="button-addon-password" (click)="show_password = !show_password"><i class="fa-solid fa-eye"></i></button>
                 </div>
               </div>
             </div>
             <div class="row spacer-3"></div>
             <div class="row px-4">
               <div class="col">
-                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                <button type="submit" class="btn btn-primary w-100" (click)="login()">Ingresar</button>
               </div>
             </div>
             <div class="row spacer-3"></div>
