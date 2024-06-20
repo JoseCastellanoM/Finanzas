@@ -1,0 +1,28 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "username": "Andy853",
+      "password": "andy",
+      "interest_rate": 0,
+      "moratorium_interest_rate": 0,
+      "credit_limit": 0,
+      "grace_periods": 0,
+      "payment_time": 0
+    },
+    {
+      "id": 3,
+      "username": "Andy853",
+      "password": "andy",
+      "interest_rate": 0,
+      "moratorium_interest_rate": 0,
+      "credit_limit": 0,
+      "grace_periods": 0,
+      "payment_time": 0
+    }
+  ],
+
+  "customers": [
+    { "id": 1, "content": "Andy", "last_name":"García" }
+  ]
+}

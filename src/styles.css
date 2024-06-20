@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --size-1: 10px;
+  --size-2: 20px;
+  --size-3: 30px;
+  --size-4: 40px;
+  --size-5: 60px;
+  --size-6: 120px;
+  --size-7: 180px;
+  --size-8: 360px;
+}
+
+.spacer-1{
+  height: var(--size-1);
+}
+.spacer-2{
+  height: var(--size-2);
+}
+.spacer-3{
+  height: var(--size-3);
+}
+.spacer-4{
+  height: var(--size-4);
+}
+.spacer-5{
+  height: var(--size-5);
+}
+.spacer-6{
+  height: var(--size-6);
+}
+
+
