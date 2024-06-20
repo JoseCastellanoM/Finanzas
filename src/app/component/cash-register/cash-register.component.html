@@ -1,1 +1,230 @@
-<p>cash-register works!</p>
+<div id="header" class="shadow rounded-0">
+  <div class="container">
+    <div class="row spacer-3"></div>
+    <div class="row align-items-center justify-content-between">
+      <div class="col-auto d-none d-sm-block">
+        <img src="../../assets/images/BodegaLucia002.png" class="object-fit-scale" alt="Logo de Bodega Lucia" style="height: 4rem;">
+      </div>
+      <div class="col col-auto">
+        <div class="display-6 fw-medium">Bodega Lucia</div>
+      </div>
+      <div class="col col-auto">
+        <button type="menu" class="btn btn-outline-secondary"><i class="fa-solid fa-bars" style="width: 5rem;"></i></button>
+      </div>
+    </div>
+    <div class="row spacer-3"></div>
+  </div>
+</div>
+
+<section id="cash-register">
+  <div class="spacer-5"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-7">
+        <div class="container-fluid">
+          <div class="row align-items-center g-3">
+            <div class="col-auto">Buscar:</div>
+            <div class="col">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="" aria-label="buscar usuario">
+                <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
+            </div>
+            <div class="col-12">
+              <table class="table border text-center align-middle">
+                <thead class="text-uppercase table-warning">
+                  <tr>
+                    <th scope="col" class="col-3">ID usuario</th>
+                    <th scope="col" class="col-5">Cliente</th>
+                    <th scope="col" class="col-auto">Ver operaciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>001</td>
+                    <td class="text-start">Andy García</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-up-right-from-square"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>002</td>
+                    <td class="text-start">Jose Rojas</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-up-right-from-square"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>003</td>
+                    <td class="text-start">Arturo Armas</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-up-right-from-square"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>004</td>
+                    <td class="text-start">Francisca Gonzales</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-up-right-from-square"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>005</td>
+                    <td class="text-start">Sandra Neciosup</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-up-right-from-square"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>006</td>
+                    <td class="text-start">Armando Fuentes</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-up-right-from-square"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>007</td>
+                    <td class="text-start">Franco Ochoa</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-up-right-from-square"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>008</td>
+                    <td class="text-start">Andy Lazaro</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-up-right-from-square"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>009</td>
+                    <td class="text-start">Julio Mendoza</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-up-right-from-square"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>010</td>
+                    <td class="text-start">Jorge Luna</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-up-right-from-square"></i></button>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="container-fluid">
+          <div class="row align-items-center g-3">
+            <div class="col-auto">
+              <div class="text-body-secondary">Fecha de pago:</div>
+            </div>
+            <div class="col">
+              <input type="date" class="form-control" placeholder="" aria-label="fecha de pago">
+            </div>
+            <div class="col-12">
+              <select class="form-select" aria-label="seleccionar si registrar compra o registrar pago">
+                <option value="1">Registrar compra</option>
+                <option value="2">Registrar pago</option>
+              </select>
+            </div>
+
+            <!-- Registrar compra -->
+            <div class="row align-items-center g-3 d-none">
+              <div class="col-12">
+                <input type="number" class="form-control" placeholder="Valor de compra" aria-label="valor de compra">
+              </div>
+              <div class="col-12">
+                <select class="form-select" aria-label="seleccionar tipo de credito">
+                  <option value="1">Interes simple</option>
+                  <option value="2">Interes valor futuro</option>
+                  <option value="3">Interes anualidad vencida</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <input type="number" class="form-control" placeholder="Periodos de pago" aria-label="periodos de pago">
+              </div>
+              <div class="col-12">
+                <textarea class="form-control" placeholder="Descripción" rows="5"></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary w-100">Registrar</button>
+              </div>
+            </div>
+
+            <!-- Registrar pago -->
+            <div class="col-12" style="max-height: 60vh; overflow-y: auto;">
+              <table class="table table-bordered border rounded-3 text-center align-middle">
+                <thead class="table-warning">
+                  <tr>
+                    <th scope="col" class="col-7">Monto</th>
+                    <th scope="col" class="col-4">Estado</th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                  <tr>
+                    <td>S/.  90</td>
+                    <td>
+                      <button type="button" class="btn btn-secondary" disabled>Pagado</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>S/.  60</td>
+                    <td>
+                      <button type="button" class="btn btn-secondary" disabled>Pagado</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>S/.  50</td>
+                    <td>
+                      <button type="button" class="btn btn-secondary" disabled>Pagado</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>S/.  55</td>
+                    <td>
+                      <button type="button" class="btn btn-secondary" disabled>Pagado</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>S/.  80</td>
+                    <td>
+                      <button type="button" class="btn btn-secondary" disabled>Pagado</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>S/.  80</td>
+                    <td>
+                      <button type="button" class="btn btn-secondary" disabled>Pagado</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> S/. 100</td>
+                    <td>
+                      <button type="button" class="btn btn-secondary" disabled>Pagado</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>S/.  30</td>
+                    <td>
+                      <button type="button" class="btn btn-primary">Pagado</button>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
