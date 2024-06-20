@@ -1,6 +1,7 @@
 import { Customer } from "./customer";
 
 export class Purchase {
+  id: number = 0;
   value: number = 0;
   detail: string = "";
   date: Date = new Date(Date.now());
