@@ -25,31 +25,36 @@
             <div class="text-body-secondary">Usuario</div>
           </div>
           <div class="col-10">
-            <input type="text" class="form-control" placeholder="" aria-label="nombre del negocio">
+            <!--<input type="text" class="form-control" placeholder="" aria-label="nombre del negocio">-->
+            <input type="text" class="form-control" placeholder="" aria-label="nombre de usuario" [(ngModel)]="username">
           </div>
-
           <div class="col-2">
             <div class="text-body-secondary">Contraseña</div>
           </div>
+          
           <div class="col-5">
             <div class="input-group">
-              <input type="password" class="form-control" placeholder="" aria-label="contraseña" aria-describedby="btn-show-password">
-              <button type="button" class="btn btn-outline-secondary" id="btn-show-password"><i class="fa-solid fa-eye"></i></button>
+              <input [type]="show_password ? 'text' : 'password'" class="form-control" placeholder="" aria-label="contraseña" aria-describedby="button-addon-password" id="password-input" [(ngModel)]="password">
+              <button type="button" class="btn btn-outline-secondary" id="button-addon-password" (click)="show_password = !show_password">
+                <i class="fa-solid fa-eye" [ngClass]="{'fa-eye-slash': show_password, 'fa-eye': !show_password}"></i>
+              </button>
             </div>
           </div>
           <div class="col-5">
             <div class="input-group">
-              <input type="password" class="form-control" placeholder="Verificar contraseña" aria-label="contraseña" aria-describedby="btn-show-password-confirm">
-              <button type="button" class="btn btn-outline-secondary" id="btn-show-password-confirm"><i class="fa-solid fa-eye"></i></button>
+              <input [type]="show_password_confirm ? 'text' : 'password'" class="form-control" placeholder="Verificar contraseña" aria-label="contraseña" aria-describedby="button-addon-password-confirm" id="password-confirm-input" [(ngModel)]="confirmPassword">
+              <button type="button" class="btn btn-outline-secondary" id="button-addon-password-confirm" (click)="show_password_confirm = !show_password_confirm">
+                <i class="fa-solid fa-eye" [ngClass]="{'fa-eye-slash': show_password_confirm, 'fa-eye': !show_password_confirm}"></i>
+              </button>
             </div>
           </div>
-
+          
           <div class="col-2">
             <div class="text-body-secondary">Tasa de interes</div>
           </div>
           <div class="col-6">
             <div class="input-group">
-              <input type="number" class="form-control" placeholder="" aria-label="tasa de interes">
+              <input type="number" class="form-control" placeholder="" aria-label="tasa de interes" [(ngModel)]="interest_rate">
             </div>
           </div>
           <div class="col-4">
@@ -67,7 +72,7 @@
           </div>
           <div class="col-5">
             <div class="input-group">
-              <input type="number" class="form-control" placeholder="" aria-label="tasa de interes moratoria">
+              <input type="number" class="form-control" placeholder="" aria-label="tasa de interes moratoria" [(ngModel)]="moratorium_interest_rate">
             </div>
           </div>
           <div class="col-4">
@@ -85,7 +90,7 @@
           </div>
           <div class="col-4">
             <div class="input-group">
-              <input type="number" class="form-control" placeholder="" aria-label="limite de credito">
+              <input type="number" class="form-control" placeholder="" aria-label="limite de credito" [(ngModel)]="credit_limit">
             </div>
           </div>
           
@@ -94,12 +99,12 @@
           </div>
           <div class="col-3">
             <div class="input-group">
-              <input type="number" class="form-control" placeholder="" aria-label="periodos de gracia">
+              <input type="number" class="form-control" placeholder="" aria-label="periodos de gracia" [(ngModel)]="grace_periods">
             </div>
           </div>
 
           <div class="col-12 text-center mt-4">
-            <button type="button" class="btn btn-warning">Guardar cambios</button>
+            <button type="submit" class="btn btn-primary w-100" (click)="configuration()">Guardar cambios</button>
           </div>
         </div>
       </div>
