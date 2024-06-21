@@ -9,5 +9,5 @@ export class Purchase {
   grace_periods: boolean = false;
   status: boolean = false;
   type_of_credit: number =  0;
-  customer: Customer = new Customer();
+  customer_id : number = 0;
 }
