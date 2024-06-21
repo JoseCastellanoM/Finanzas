@@ -30,6 +30,7 @@ export class CustomerRegisterComponent {
       this.customer_service.createCustomer(this.new_customer).subscribe(response => {
         console.log("Customer created")
         console.log(response);
+        
       })
     })
 
