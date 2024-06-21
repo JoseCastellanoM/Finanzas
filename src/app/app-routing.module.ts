@@ -14,14 +14,19 @@ const routes: Routes = [
   { path: 'configuracion', component: ConfigurationComponent },
   { path: 'registrar-cliente', component: CustomerRegisterComponent },
   {
-    path: 'caja', component: CashRegisterComponent, 
+    path: 'caja', component: CashRegisterComponent,
     children: [
       { path: '', redirectTo: 'registrar-compra', pathMatch: 'full' },
       { path: 'registrar-compra', component: PurchaseRegisterComponent },
       { path: 'registrar-pago', component: PaymentRegisterComponent }
     ]
   },
-  { path: 'operaciones', component: OperationsListComponent }
+  { path: 'operaciones', component: OperationsListComponent,
+    children: [
+      { path: 'list/:id', component: OperationsListComponent}
+    ]
+  },
+
 ];
 
 @NgModule({

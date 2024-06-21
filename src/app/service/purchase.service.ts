@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Purchase } from '../model/purchase';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +29,10 @@ export class PurchaseService {
 
   deletePurchase(id : number) : Observable<void> {
     return this.http.delete<void>(`${this.baseURL}/${id}`)
+  }
+  getPurchasesByCustomerId(customerId: number): Observable<Purchase[]> {
+    return this.http.get<Purchase[]>(`${this.baseURL}`).pipe(
+      map(purchases => purchases.filter(purchase => purchase.customer_id === customerId))
+    );
   }
 }

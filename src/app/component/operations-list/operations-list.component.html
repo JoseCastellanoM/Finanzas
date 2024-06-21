@@ -26,7 +26,7 @@
             <div class="text-body-secondary">Cliente:</div>
           </div>
           <div class="col-10">
-            <input type="text" class="form-control" aria-label="nombre de usuario" value="Andy García" readonly>
+            <input type="text" class="form-control" aria-label="nombre de usuario" [value]="customer.name" readonly>
           </div>
           <div class="col-2">
             <div class="text-body-secondary">Deuda:</div>
@@ -103,41 +103,11 @@
             </tr>
           </thead>
           <tbody class="align-middle">
-            <tr>
-              <td>001</td>
-              <td>15/04/2024</td>
-              <td class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita recusandae in quia laudantium fugit beatae corporis aspernatur nemo?</td>
-              <td>S/. 100</td>
-            </tr>
-            <tr>
-              <td>002</td>
-              <td>15/04/2024</td>
-              <td class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita recusandae in quia laudantium fugit beatae corporis aspernatur nemo?</td>
-              <td>S/. 100</td>
-            </tr>
-            <tr>
-              <td>003</td>
-              <td>15/04/2024</td>
-              <td class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita recusandae in quia laudantium fugit beatae corporis aspernatur nemo?</td>
-              <td>S/. 100</td>
-            </tr>
-            <tr>
-              <td>004</td>
-              <td>15/04/2024</td>
-              <td class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita recusandae in quia laudantium fugit beatae corporis aspernatur nemo?</td>
-              <td>S/. 100</td>
-            </tr>
-            <tr>
-              <td>005</td>
-              <td>15/04/2024</td>
-              <td class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita recusandae in quia laudantium fugit beatae corporis aspernatur nemo?</td>
-              <td>S/. 100</td>
-            </tr>
-            <tr>
-              <td>006</td>
-              <td>15/04/2024</td>
-              <td class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita recusandae in quia laudantium fugit beatae corporis aspernatur nemo?</td>
-              <td>S/. 100</td>
+            <tr *ngFor="let purchase of purchases">
+              <td>{{ purchase.id }}</td>
+              <td>{{ purchase.date | date: 'dd/MM/yyyy' }}</td>
+              <td class="text-start">{{ purchase.detail }}</td>
+              <td>S/. {{ purchase.value }}</td>
             </tr>
 
           </tbody>
@@ -156,54 +126,11 @@
             </tr>
           </thead>
           <tbody class="align-middle">
-            <tr>
-              <td>001</td>
-              <td>15/04/2024</td>
-              <td>S/. 100</td>
-              <td>S/. 100</td>
-            </tr>
-
-            <tr>
-              <td>002</td>
-              <td>15/04/2024</td>
-              <td>S/. 100</td>
-              <td>S/. 100</td>
-            </tr>
-            <tr>
-              <td>003</td>
-              <td>15/04/2024</td>
-              <td>S/. 100</td>
-              <td>S/. 100</td>
-            </tr>
-            <tr>
-              <td>004</td>
-              <td>15/04/2024</td>
-              <td>S/. 100</td>
-              <td>S/. 100</td>
-            </tr>
-            <tr>
-              <td>004</td>
-              <td>15/04/2024</td>
-              <td>S/. 100</td>
-              <td>S/. 100</td>
-            </tr>
-            <tr>
-              <td>004</td>
-              <td>15/04/2024</td>
-              <td>S/. 100</td>
-              <td>S/. 100</td>
-            </tr>
-            <tr>
-              <td>004</td>
-              <td>15/04/2024</td>
-              <td>S/. 100</td>
-              <td>S/. 100</td>
-            </tr>
-            <tr>
-              <td>004</td>
-              <td>15/04/2024</td>
-              <td>S/. 100</td>
-              <td>S/. 100</td>
+            <tr *ngFor="let payment of payments">
+              <td>{{ payment.id }}</td>
+              <td>{{ payment.date | date: 'dd/MM/yyyy' }}</td>
+              <td>S/. {{ payment.interest }}</td>
+              <td>S/. {{ payment.amortization }}</td>
             </tr>
 
           </tbody>

@@ -24,6 +24,7 @@ import { OperationsListComponent } from './component/operations-list/operations-
     PurchaseRegisterComponent,
     PaymentRegisterComponent,
     OperationsListComponent,
+
   ],
   imports: [
     BrowserModule,

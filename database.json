@@ -2,28 +2,8 @@
   "user": [
     {
       "id": 1,
-      "username": "Andy853",
-      "password": "andy",
-      "interest_rate": 0,
-      "moratorium_interest_rate": 0,
-      "credit_limit": 0,
-      "grace_periods": 0,
-      "payment_time": 0
-    },
-    {
-      "id": 3,
-      "username": "Andy853",
-      "password": "andy",
-      "interest_rate": 0,
-      "moratorium_interest_rate": 0,
-      "credit_limit": 0,
-      "grace_periods": 0,
-      "payment_time": 0
-    },
-    {
-      "id": "3",
-      "username": "Andy853",
-      "password": "andy",
+      "username": "j",
+      "password": "j",
       "interest_rate": 0,
       "moratorium_interest_rate": 0,
       "credit_limit": 0,
@@ -48,7 +28,7 @@
     },
     {
       "id": "3",
-      "name": "Jose Castellanos",
+      "name": "Jose Castellano",
       "dni": 87654321,
       "phone": 987654321,
       "payment_date": "2024-06-21"
@@ -60,5 +40,191 @@
       "phone": 987654321,
       "payment_date": "2024-06-22"
     }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "value": 100,
+      "date": "2024-06-12T00:00:00.000Z",
+      "purchase_id": 101,
+      "interest": 5,
+      "amortization": 95,
+      "customer_id": 1
+    },
+    {
+      "id": 2,
+      "value": 150,
+      "date": "2024-06-15T00:00:00.000Z",
+      "purchase_id": 102,
+      "interest": 10,
+      "amortization": 140,
+      "customer_id": 1
+    },
+    {
+      "id": 3,
+      "value": 200,
+      "date": "2024-06-20T00:00:00.000Z",
+      "purchase_id": 103,
+      "interest": 15,
+      "amortization": 185,
+      "customer_id": 1
+    },
+    {
+      "id": 4,
+      "value": 100,
+      "date": "2024-06-12T00:00:00.000Z",
+      "purchase_id": 101,
+      "interest": 5,
+      "amortization": 95,
+      "customer_id": 1
+    },
+    {
+      "id": 5,
+      "value": 150,
+      "date": "2024-07-15T00:00:00.000Z",
+      "purchase_id": 102,
+      "interest": 10,
+      "amortization": 140,
+      "customer_id": 2
+    },
+    {
+      "id": 6,
+      "value": 200,
+      "date": "2024-08-18T00:00:00.000Z",
+      "purchase_id": 103,
+      "interest": 15,
+      "amortization": 185,
+      "customer_id": 3
+    },
+    {
+      "id": 7,
+      "value": 250,
+      "date": "2024-09-21T00:00:00.000Z",
+      "purchase_id": 104,
+      "interest": 20,
+      "amortization": 230,
+      "customer_id": 1
+    },
+    {
+      "id": 8,
+      "value": 300,
+      "date": "2024-10-24T00:00:00.000Z",
+      "purchase_id": 105,
+      "interest": 25,
+      "amortization": 275,
+      "customer_id": 2
+    },
+    {
+      "id": 9,
+      "value": 350,
+      "date": "2024-11-27T00:00:00.000Z",
+      "purchase_id": 106,
+      "interest": 30,
+      "amortization": 320,
+      "customer_id": 3
+    }
+  ],
+  "purchases":[
+    {
+      "id": 1,
+      "value": 1000,
+      "detail": "Compra de electrodomésticos",
+      "date": "2024-04-15T00:00:00.000Z",
+      "periods": 12,
+      "grace_periods": false,
+      "status": true,
+      "type_of_credit": 1,
+      "customer_id": 1
+    },
+    {
+      "id": 2,
+      "value": 500,
+      "detail": "Compra de muebles",
+      "date": "2024-05-10T00:00:00.000Z",
+      "periods": 6,
+      "grace_periods": false,
+      "status": true,
+      "type_of_credit": 2,
+      "customer_id": 1
+    },
+    {
+      "id": 3,
+      "value": 2000,
+      "detail": "Compra de vehículo",
+      "date": "2024-06-01T00:00:00.000Z",
+      "periods": 24,
+      "grace_periods": true,
+      "status": false,
+      "type_of_credit": 3,
+      "customer_id": 1
+    },
+    {
+      "id": 4,
+      "value": 500,
+      "detail": "Laptop",
+      "date": "2024-06-12T00:00:00.000Z",
+      "periods": 12,
+      "grace_periods": false,
+      "status": true,
+      "type_of_credit": 1,
+      "customer_id": 1
+    },
+    {
+      "id": 5,
+      "value": 750,
+      "detail": "Smartphone",
+      "date": "2024-07-15T00:00:00.000Z",
+      "periods": 18,
+      "grace_periods": true,
+      "status": false,
+      "type_of_credit": 2,
+      "customer_id": 2
+    },
+    {
+      "id": 6,
+      "value": 1000,
+      "detail": "Television",
+      "date": "2024-08-18T00:00:00.000Z",
+      "periods": 24,
+      "grace_periods": false,
+      "status": true,
+      "type_of_credit": 1,
+      "customer_id": 3
+    },
+    {
+      "id": 7,
+      "value": 1250,
+      "detail": "Furniture",
+      "date": "2024-09-21T00:00:00.000Z",
+      "periods": 30,
+      "grace_periods": true,
+      "status": false,
+      "type_of_credit": 3,
+      "customer_id": 1
+    },
+    {
+      "id": 8,
+      "value": 1500,
+      "detail": "Refrigerator",
+      "date": "2024-10-24T00:00:00.000Z",
+      "periods": 36,
+      "grace_periods": false,
+      "status": true,
+      "type_of_credit": 2,
+      "customer_id": 2
+    },
+    {
+      "id": 9,
+      "value": 1750,
+      "detail": "Washing Machine",
+      "date": "2024-11-27T00:00:00.000Z",
+      "periods": 48,
+      "grace_periods": true,
+      "status": false,
+      "type_of_credit": 3,
+      "customer_id": 3
+    }
   ]
+
+
 }
