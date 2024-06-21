@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './operations-list.component.css'
 })
 export class OperationsListComponent {
-
+  selectedOption: string = '1';
 }
