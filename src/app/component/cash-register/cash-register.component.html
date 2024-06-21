@@ -26,12 +26,12 @@
             <div class="col-auto">Buscar:</div>
             <div class="col">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="" aria-label="buscar usuario">
-                <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input type="text" class="form-control" placeholder="" aria-label="buscar usuario" [(ngModel)]="search_string">
+                <button type="button" class="btn btn-outline-secondary" (click)="search_user()"><i class="fa-solid fa-magnifying-glass"></i></button>
               </div>
             </div>
-            <div class="col-12">
-              <table class="table border text-center align-middle">
+            <div class="col-12" style="max-height: 70vh; overflow-y: auto;">
+              <table class="table table-hover border text-center align-middle">
                 <thead class="text-uppercase table-warning">
                   <tr>
                     <th scope="col" class="col-3">ID usuario</th>
@@ -40,6 +40,14 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <tr *ngFor="let item of list_of_customers" [class.table-active]="item.id == selected_user_id" (click)="select_user(item.id)">
+                    <td>{{item.id}}</td>
+                    <td class="text-start">{{item.name}}</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-up-right-from-square"></i></button>
+                    </td>
+                  </tr>
+<!--                   
                   <tr>
                     <td>001</td>
                     <td class="text-start">Andy García</td>
@@ -110,7 +118,7 @@
                       <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-up-right-from-square"></i></button>
                     </td>
                   </tr>
-                  
+                   -->
                 </tbody>
               </table>
             </div>
@@ -128,37 +136,39 @@
               <input type="date" class="form-control" placeholder="" aria-label="fecha de pago">
             </div>
             <div class="col-12">
-              <select class="form-select" aria-label="seleccionar si registrar compra o registrar pago">
+              <select class="form-select" aria-label="seleccionar si registrar compra o registrar pago" [(ngModel)]="value_selection">
                 <option value="1">Registrar compra</option>
                 <option value="2">Registrar pago</option>
               </select>
             </div>
 
             <!-- Registrar compra -->
-            <div class="row align-items-center g-3 d-none">
-              <div class="col-12">
-                <input type="number" class="form-control" placeholder="Valor de compra" aria-label="valor de compra">
-              </div>
-              <div class="col-12">
-                <select class="form-select" aria-label="seleccionar tipo de credito">
-                  <option value="1">Interes simple</option>
-                  <option value="2">Interes valor futuro</option>
-                  <option value="3">Interes anualidad vencida</option>
-                </select>
-              </div>
-              <div class="col-12">
-                <input type="number" class="form-control" placeholder="Periodos de pago" aria-label="periodos de pago">
-              </div>
-              <div class="col-12">
-                <textarea class="form-control" placeholder="Descripción" rows="5"></textarea>
-              </div>
-              <div class="col-12">
-                <button type="submit" class="btn btn-primary w-100">Registrar</button>
+            <div class="col-12" [ngClass]="{'d-none': value_selection != 1}">
+              <div class="row align-items-center g-3">
+                <div class="col-12">
+                  <input type="number" class="form-control" placeholder="Valor de compra" aria-label="valor de compra">
+                </div>
+                <div class="col-12">
+                  <select class="form-select" aria-label="seleccionar tipo de credito">
+                    <option value="1">Interes simple</option>
+                    <option value="2">Interes valor futuro</option>
+                    <option value="3">Interes anualidad vencida</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <input type="number" class="form-control" placeholder="Periodos de pago" aria-label="periodos de pago">
+                </div>
+                <div class="col-12">
+                  <textarea class="form-control" placeholder="Descripción" rows="5"></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary w-100">Registrar</button>
+                </div>
               </div>
             </div>
 
             <!-- Registrar pago -->
-            <div class="col-12" style="max-height: 60vh; overflow-y: auto;">
+            <div class="col-12" style="max-height: 60vh; overflow-y: auto;" [ngClass]="{'d-none': value_selection != 2}">
               <table class="table table-bordered border rounded-3 text-center align-middle">
                 <thead class="table-warning">
                   <tr>
