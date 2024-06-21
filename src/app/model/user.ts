@@ -6,6 +6,7 @@ export class  User {
   password: string = "";
   confirmPassword: string = "";
   interest_rate: number = 0;
+  //interest_type : number = 0; // 1: nominal - 2: efectiva
   moratorium_interest_rate: number = 0;
   credit_limit: number = 0;
   grace_periods: number = 0;
