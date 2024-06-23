@@ -54,14 +54,14 @@
         </div>
       </div>
 
-      <div class="col">
+      <fieldset class="col" [disabled]="this.selected_customer.id == ''">
         <div class="container-fluid">
           <div class="row align-items-center g-3">
             <div class="col-auto">
               <div class="text-body-secondary">Fecha de pago:</div>
             </div>
             <div class="col">
-              <input type="date" class="form-control" placeholder="" aria-label="fecha de pago" [(ngModel)]="selected_customer.payment_date">
+              <input type="date" class="form-control" placeholder="" aria-label="fecha de pago" disabled [(ngModel)]="selected_customer.payment_date">
             </div>
             <div class="col-12">
               <select class="form-select" aria-label="seleccionar si registrar compra o registrar pago" [(ngModel)]="value_selection">
@@ -112,52 +112,10 @@
                 </thead>
                 
                 <tbody>
-                  <tr>
-                    <td>S/.  90</td>
+                  <tr *ngFor="let item of this.customer_payments">
+                    <td>{{item.value.toFixed(1)+"0"}}</td>
                     <td>
-                      <button type="button" class="btn btn-secondary" disabled>Pagado</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>S/.  60</td>
-                    <td>
-                      <button type="button" class="btn btn-secondary" disabled>Pagado</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>S/.  50</td>
-                    <td>
-                      <button type="button" class="btn btn-secondary" disabled>Pagado</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>S/.  55</td>
-                    <td>
-                      <button type="button" class="btn btn-secondary" disabled>Pagado</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>S/.  80</td>
-                    <td>
-                      <button type="button" class="btn btn-secondary" disabled>Pagado</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>S/.  80</td>
-                    <td>
-                      <button type="button" class="btn btn-secondary" disabled>Pagado</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td> S/. 100</td>
-                    <td>
-                      <button type="button" class="btn btn-secondary" disabled>Pagado</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>S/.  30</td>
-                    <td>
-                      <button type="button" class="btn btn-primary">Pagado</button>
+                      <button type="button" class="btn" [ngClass]="{'btn-primary': !item.status, 'btn-secondary': item.status}" [disabled]="item.status" (click)="pay_due(item)">{{item.status ? "Pagado" : "Pagar"}}</button>
                     </td>
                   </tr>
                   
@@ -168,7 +126,7 @@
 
           </div>
         </div>
-      </div>
+      </fieldset>
     </div>
   </div>
 </section>

@@ -17,14 +17,12 @@ import { UserService } from '../../service/user.service';
 export class CashRegisterComponent {
   value_selection : number = 1; // It stores the select value about purchase and payment register
   search_string : string = ""; // The search made by the user
-  list_of_customers :  Customer[] = []; // it stores the list of customers showed in the table
+  list_of_customers :  Customer[] = [] // it stores the list of customers showed in the table
   payment_method : number = 1; // 
-
-  
-  vari = false;
   
   global_user : User = new User;
   selected_customer : Customer = new Customer;
+  customer_payments : Payment[] = [];
   new_purchase : Purchase = new Purchase;
   
   
@@ -52,9 +50,13 @@ export class CashRegisterComponent {
   select_customer(user_id : string) {
     this.customer_service.getCustomer(user_id).subscribe( data => {
       this.selected_customer = data;
+      this.payment_service.getPaymentsByCustomerId(this.selected_customer.id).subscribe(data => {
+        this.customer_payments = data;
+        console.log("Payments");
+        console.log(data);
+      });
     })
   }
-
   
   get_last_payment_date(first_date :  Date, last_date : Date, period : number) : Date {
     first_date = new Date(first_date);
@@ -68,8 +70,7 @@ export class CashRegisterComponent {
     date2 = new Date(date2);
     return ((date1.getTime() - date2.getTime()) <= 0) ? date1 : date2;
   }
-
-  // TODO: Validate that the user was selected
+  
   register_purchase() : void {
     this.purchase_service.getPurchases().subscribe(data_purchases => {
       this.new_purchase.id = `${data_purchases.length + 1}`;
@@ -137,4 +138,8 @@ export class CashRegisterComponent {
     
   }
 
+  pay_due(payment : Payment) {
+    payment.status = true;
+    this.payment_service.updatePayment(payment).subscribe({})
+  }
 }
