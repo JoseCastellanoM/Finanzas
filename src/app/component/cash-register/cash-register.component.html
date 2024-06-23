@@ -27,7 +27,7 @@
             <div class="col">
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="" aria-label="buscar usuario" [(ngModel)]="search_string">
-                <button type="button" class="btn btn-outline-secondary" (click)="search_user()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button type="button" class="btn btn-outline-secondary" (click)="search_customer()"><i class="fa-solid fa-magnifying-glass"></i></button>
               </div>
             </div>
             <div class="col-12" style="max-height: 70vh; overflow-y: auto;">
@@ -40,7 +40,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of list_of_customers" [class.table-active]="item.id == selected_customer.id" (click)="select_user(item.id)">
+                  <tr *ngFor="let item of list_of_customers" [class.table-active]="item.id == selected_customer.id" (click)="select_customer(item.id)">
                     <td>{{item.id}}</td>
                     <td class="text-start">{{item.name}}</td>
                     <td>
@@ -61,7 +61,7 @@
               <div class="text-body-secondary">Fecha de pago:</div>
             </div>
             <div class="col">
-              <input type="date" class="form-control" placeholder="" aria-label="fecha de pago" [(ngModel)]="date_selected">
+              <input type="date" class="form-control" placeholder="" aria-label="fecha de pago" [(ngModel)]="selected_customer.payment_date">
             </div>
             <div class="col-12">
               <select class="form-select" aria-label="seleccionar si registrar compra o registrar pago" [(ngModel)]="value_selection">
@@ -74,20 +74,26 @@
             <div class="col-12" [ngClass]="{'d-none': value_selection != 1}">
               <div class="row align-items-center g-3">
                 <div class="col-12">
-                  <input type="number" class="form-control" placeholder="Valor de compra" aria-label="valor de compra">
+                  <label class="form-label">Valor de compra</label>
+                  <input type="number" class="form-control" placeholder="Valor de compra" aria-label="valor de compra" [(ngModel)]="this.new_purchase.value">
                 </div>
                 <div class="col-12">
                   <select class="form-select" aria-label="seleccionar tipo de credito" [(ngModel)]="payment_method">
-                    <option value="1">Interes simple</option>
-                    <option value="2">Interes valor futuro</option>
-                    <option value="3">Interes anualidad vencida</option>
+                    <option value="1">Interes valor futuro</option>
+                    <option value="2">Interes anualidad vencida</option>
                   </select>
                 </div>
-                <div class="col-12" [ngClass]="{'d-none': payment_method != 3}">
-                  <input type="number" class="form-control" placeholder="Periodos de pago" aria-label="periodos de pago">
+                <div class="col-12" [ngClass]="{'d-none': payment_method != 2}">
+                  <input type="number" class="form-control" placeholder="Periodos de pago" aria-label="periodos de pago" [(ngModel)]="this.new_purchase.periods">
+                </div>
+                <div class="col-12" [ngClass]="{'d-none': payment_method != 2}">
+                  <div class="form-check form-switch">
+                    <input type="checkbox" class="form-check-input" placeholder="Seleccionar si tiene periodo de gracia" aria-level="periodo de gracia checkbox" [(ngModel)]="this.new_purchase.grace_periods">
+                    <label class="form-check-label" for="">Periodo de gracia: {{this.global_user.grace_periods}}</label>
+                  </div>
                 </div>
                 <div class="col-12">
-                  <textarea class="form-control" placeholder="Descripción" rows="5"></textarea>
+                  <textarea class="form-control" placeholder="Descripción" rows="5" [(ngModel)]="this.new_purchase.detail"></textarea>
                 </div>
                 <div class="col-12">
                   <button type="submit" class="btn btn-primary w-100" (click)="register_purchase()">Registrar</button>

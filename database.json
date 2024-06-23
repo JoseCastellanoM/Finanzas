@@ -1,230 +1,266 @@
 {
   "user": [
     {
-      "id": 1,
+      "id": "1",
       "username": "j",
       "password": "j",
-      "interest_rate": 0,
-      "moratorium_interest_rate": 0,
-      "credit_limit": 0,
-      "grace_periods": 0,
-      "payment_time": 0
+      "interest_rate": 0.5,
+      "interest_type": 2,
+      "moratorium_interest_rate": 0.2,
+      "credit_limit": 1000,
+      "grace_periods": 2,
+      "payment_time": 10
     }
   ],
   "customers": [
     {
       "id": "1",
-      "name": "Andy Garcia",
+      "name": "Andy",
       "dni": 87654321,
       "phone": 987654321,
-      "payment_date": "2024-06-20"
-    },
-    {
-      "id": "2",
-      "name": "Juan Saravia Inga",
-      "dni": 87654321,
-      "phone": 987654321,
-      "payment_date": "2024-06-20"
-    },
-    {
-      "id": "3",
-      "name": "Jose Castellano",
-      "dni": 87654321,
-      "phone": 987654321,
-      "payment_date": "2024-06-21"
-    },
-    {
-      "id": 4,
-      "name": "Sandra Neciosup",
-      "dni": 87654321,
-      "phone": 987654321,
-      "payment_date": "2024-06-22"
+      "payment_date": "2024-06-07"
     }
   ],
   "payments": [
     {
-      "id": 1,
-      "value": 100,
-      "date": "2024-06-12T00:00:00.000Z",
-      "purchase_id": 101,
-      "interest": 5,
-      "amortization": 95,
-      "customer_id": 1
+      "id": "1",
+      "value": 7.044378027870198,
+      "date": "2024-07-17T00:00:00.000Z",
+      "customer_id": "1",
+      "purchase_id": "1",
+      "amortization": 6.947879698721291,
+      "interest": 0.09649832914890677,
+      "status": false
     },
     {
-      "id": 2,
-      "value": 150,
-      "date": "2024-06-15T00:00:00.000Z",
-      "purchase_id": 102,
-      "interest": 10,
-      "amortization": 140,
-      "customer_id": 1
+      "id": "2",
+      "value": 7.044378027870198,
+      "date": "2024-07-27T00:00:00.000Z",
+      "customer_id": "1",
+      "purchase_id": "1",
+      "amortization": 6.852703264492233,
+      "interest": 0.1916747633779643,
+      "status": false
     },
     {
-      "id": 3,
-      "value": 200,
-      "date": "2024-06-20T00:00:00.000Z",
-      "purchase_id": 103,
-      "interest": 15,
-      "amortization": 185,
-      "customer_id": 1
+      "id": "3",
+      "value": 7.044378027870198,
+      "date": "2024-08-06T00:00:00.000Z",
+      "customer_id": "1",
+      "purchase_id": "1",
+      "amortization": 6.758830617033435,
+      "interest": 0.28554741083676305,
+      "status": false
     },
     {
-      "id": 4,
-      "value": 100,
-      "date": "2024-06-12T00:00:00.000Z",
-      "purchase_id": 101,
-      "interest": 5,
-      "amortization": 95,
-      "customer_id": 1
+      "id": "4",
+      "value": 6.852703264492233,
+      "date": "2024-06-27T00:00:00.000Z",
+      "customer_id": "1",
+      "purchase_id": "2",
+      "amortization": 6.7588306170334365,
+      "interest": 0.09387264745879698,
+      "status": false
     },
     {
-      "id": 5,
-      "value": 150,
-      "date": "2024-07-15T00:00:00.000Z",
-      "purchase_id": 102,
-      "interest": 10,
-      "amortization": 140,
-      "customer_id": 2
+      "id": "5",
+      "value": 6.852703264492233,
+      "date": "2024-07-07T00:00:00.000Z",
+      "customer_id": "1",
+      "purchase_id": "2",
+      "amortization": 6.666243896252157,
+      "interest": 0.1864593682400768,
+      "status": false
     },
     {
-      "id": 6,
-      "value": 200,
-      "date": "2024-08-18T00:00:00.000Z",
-      "purchase_id": 103,
-      "interest": 15,
-      "amortization": 185,
-      "customer_id": 3
+      "id": "6",
+      "value": 6.852703264492233,
+      "date": "2024-07-17T00:00:00.000Z",
+      "customer_id": "1",
+      "purchase_id": "2",
+      "amortization": 6.574925486714456,
+      "interest": 0.2777777777777777,
+      "status": false
     },
     {
-      "id": 7,
-      "value": 250,
-      "date": "2024-09-21T00:00:00.000Z",
-      "purchase_id": 104,
-      "interest": 20,
-      "amortization": 230,
-      "customer_id": 1
+      "id": "7",
+      "value": 20.27777777777785,
+      "date": "2024-06-27T00:00:00.000Z",
+      "customer_id": "1",
+      "purchase_id": "3",
+      "amortization": 20.00000000000007,
+      "interest": 0.27777777777777857,
+      "status": false
     },
     {
-      "id": 8,
-      "value": 300,
-      "date": "2024-10-24T00:00:00.000Z",
-      "purchase_id": 105,
-      "interest": 25,
-      "amortization": 275,
-      "customer_id": 2
+      "id": "8",
+      "value": 52.471798356866096,
+      "date": "2024-07-17T00:00:00.000Z",
+      "customer_id": "1",
+      "purchase_id": "4",
+      "amortization": 51.753006598552865,
+      "interest": 0.7187917583132304,
+      "status": false
     },
     {
-      "id": 9,
-      "value": 350,
-      "date": "2024-11-27T00:00:00.000Z",
-      "purchase_id": 106,
-      "interest": 30,
-      "amortization": 320,
-      "customer_id": 3
+      "id": "9",
+      "value": 52.471798356866096,
+      "date": "2024-07-27T00:00:00.000Z",
+      "customer_id": "1",
+      "purchase_id": "4",
+      "amortization": 51.04406130268228,
+      "interest": 1.4277370541838152,
+      "status": false
+    },
+    {
+      "id": "10",
+      "value": 416.0764050430913,
+      "date": "2024-07-23T21:42:42.017Z",
+      "customer_id": "",
+      "purchase_id": "6",
+      "amortization": 411.41646146243977,
+      "interest": 4.659943580651543,
+      "status": false
+    },
+    {
+      "id": "11",
+      "value": 416.0764050430913,
+      "date": "2024-08-02T21:42:42.017Z",
+      "customer_id": "",
+      "purchase_id": "6",
+      "amortization": 406.80870799377647,
+      "interest": 9.267697049314847,
+      "status": false
+    },
+    {
+      "id": "12",
+      "value": 7.627663274883309,
+      "date": "2024-07-03T21:42:42.017Z",
+      "customer_id": "",
+      "purchase_id": "7",
+      "amortization": 7.542235502285911,
+      "interest": 0.08542777259739776,
+      "status": false
+    },
+    {
+      "id": "13",
+      "value": 7.627663274883309,
+      "date": "2024-07-13T21:42:42.017Z",
+      "customer_id": "",
+      "purchase_id": "7",
+      "amortization": 7.457764497714049,
+      "interest": 0.16989877716926038,
+      "status": false
+    },
+    {
+      "id": "14",
+      "value": 1.7289370089735498,
+      "date": "2024-07-03T21:42:42.017Z",
+      "customer_id": "",
+      "purchase_id": "8",
+      "amortization": 1.7095733805181397,
+      "interest": 0.019363628455410176,
+      "status": false
+    },
+    {
+      "id": "15",
+      "value": 1.7289370089735498,
+      "date": "2024-07-13T21:42:42.017Z",
+      "customer_id": "",
+      "purchase_id": "8",
+      "amortization": 1.6904266194818507,
+      "interest": 0.03851038949169916,
+      "status": false
     }
   ],
-  "purchases":[
+  "purchases": [
     {
-      "id": 1,
-      "value": 1000,
-      "detail": "Compra de electrodomésticos",
-      "date": "2024-04-15T00:00:00.000Z",
-      "periods": 12,
-      "grace_periods": false,
-      "status": true,
-      "type_of_credit": 1,
-      "customer_id": 1
-    },
-    {
-      "id": 2,
-      "value": 500,
-      "detail": "Compra de muebles",
-      "date": "2024-05-10T00:00:00.000Z",
-      "periods": 6,
-      "grace_periods": false,
-      "status": true,
-      "type_of_credit": 2,
-      "customer_id": 1
-    },
-    {
-      "id": 3,
-      "value": 2000,
-      "detail": "Compra de vehículo",
-      "date": "2024-06-01T00:00:00.000Z",
-      "periods": 24,
+      "id": "1",
+      "value": 20,
+      "detail": "",
+      "customer_id": "1",
+      "date": "2024-06-23T21:21:13.827Z",
       "grace_periods": true,
       "status": false,
-      "type_of_credit": 3,
-      "customer_id": 1
+      "type_of_credit": "2",
+      "periods": 3
     },
     {
-      "id": 4,
-      "value": 500,
-      "detail": "Laptop",
-      "date": "2024-06-12T00:00:00.000Z",
-      "periods": 12,
+      "id": "2",
+      "value": 20,
+      "detail": "",
+      "customer_id": "1",
+      "date": "2024-06-23T21:34:05.326Z",
       "grace_periods": false,
-      "status": true,
-      "type_of_credit": 1,
-      "customer_id": 1
+      "status": false,
+      "type_of_credit": "2",
+      "periods": 3
     },
     {
-      "id": 5,
-      "value": 750,
-      "detail": "Smartphone",
-      "date": "2024-07-15T00:00:00.000Z",
-      "periods": 18,
+      "id": "3",
+      "value": 20,
+      "detail": "hello",
+      "customer_id": "1",
+      "date": "2024-06-23T21:36:26.022Z",
+      "grace_periods": false,
+      "status": false,
+      "type_of_credit": "1",
+      "periods": 1
+    },
+    {
+      "id": "4",
+      "value": 100,
+      "detail": "",
+      "customer_id": "1",
+      "date": "2024-06-23T21:41:41.554Z",
       "grace_periods": true,
       "status": false,
-      "type_of_credit": 2,
-      "customer_id": 2
+      "type_of_credit": "2",
+      "periods": 2
     },
     {
-      "id": 6,
-      "value": 1000,
-      "detail": "Television",
-      "date": "2024-08-18T00:00:00.000Z",
-      "periods": 24,
-      "grace_periods": false,
-      "status": true,
-      "type_of_credit": 1,
-      "customer_id": 3
-    },
-    {
-      "id": 7,
-      "value": 1250,
-      "detail": "Furniture",
-      "date": "2024-09-21T00:00:00.000Z",
-      "periods": 30,
+      "id": "5",
+      "value": 100,
+      "detail": "",
+      "customer_id": "",
+      "date": "2024-06-23T21:42:47.926Z",
       "grace_periods": true,
       "status": false,
-      "type_of_credit": 3,
-      "customer_id": 1
+      "type_of_credit": "2",
+      "periods": 2
     },
     {
-      "id": 8,
-      "value": 1500,
-      "detail": "Refrigerator",
-      "date": "2024-10-24T00:00:00.000Z",
-      "periods": 36,
-      "grace_periods": false,
-      "status": true,
-      "type_of_credit": 2,
-      "customer_id": 2
-    },
-    {
-      "id": 9,
-      "value": 1750,
-      "detail": "Washing Machine",
-      "date": "2024-11-27T00:00:00.000Z",
-      "periods": 48,
+      "id": "6",
+      "value": 800,
+      "detail": "",
+      "customer_id": "",
+      "date": "2024-06-23T21:44:10.120Z",
       "grace_periods": true,
       "status": false,
-      "type_of_credit": 3,
-      "customer_id": 3
+      "type_of_credit": "2",
+      "periods": 2
+    },
+    {
+      "id": "7",
+      "value": 15,
+      "detail": "",
+      "customer_id": "",
+      "date": "2024-06-23T21:44:43.247Z",
+      "grace_periods": false,
+      "status": false,
+      "type_of_credit": "2",
+      "periods": 2
+    },
+    {
+      "id": "8",
+      "value": 3.4,
+      "detail": "",
+      "customer_id": "",
+      "date": "2024-06-23T21:44:56.778Z",
+      "grace_periods": false,
+      "status": false,
+      "type_of_credit": "2",
+      "periods": 2
     }
   ]
-
-
 }

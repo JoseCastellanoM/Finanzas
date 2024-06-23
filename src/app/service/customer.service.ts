@@ -15,8 +15,9 @@ export class CustomerService {
     return this.http.get<Customer[]>(`${this.baseURL}`)
   }
 
-  getCustomer(id : number) : Observable<Customer> {
+  getCustomer(id : string) : Observable<Customer> {
     return this.http.get<Customer>(`${this.baseURL}/${id}`)
+    
   }
 
   createCustomer(customer : Customer) : Observable<Customer> {

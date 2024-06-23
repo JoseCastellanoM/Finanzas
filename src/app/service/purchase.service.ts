@@ -32,7 +32,7 @@ export class PurchaseService {
   }
   getPurchasesByCustomerId(customerId: number): Observable<Purchase[]> {
     return this.http.get<Purchase[]>(`${this.baseURL}`).pipe(
-      map(purchases => purchases.filter(purchase => purchase.customer_id === customerId))
+      map(purchases => purchases.filter(purchase => purchase.customer_id === `${customerId}`))
     );
   }
 }

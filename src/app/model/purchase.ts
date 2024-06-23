@@ -1,13 +1,11 @@
-import { Customer } from "./customer";
-
 export class Purchase {
-  id: number = 0;
+  id: string = "";
   value: number = 0;
   detail: string = "";
+  customer_id : string = "";
   date: Date = new Date(Date.now());
-  periods: number = 0;
   grace_periods: boolean = false;
-  status: boolean = false;
-  type_of_credit: number =  0;
-  customer_id : number = 0;
+  status: boolean = false; //true: paid - false: no paid
+  type_of_credit: number =  0; // 1: I. Valor futuro - 2: I. Anualidad vencida
+  periods: number = 0;
 }

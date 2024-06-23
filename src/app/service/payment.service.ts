@@ -15,7 +15,7 @@ export class PaymentService {
     return this.http.get<Payment[]>(`${this.baseURL}`)
   }
 
-  getPayment(id : number) : Observable<Payment> {
+  getPayment(id : number | string) : Observable<Payment> {
     return this.http.get<Payment>(`${this.baseURL}/${id}`)
   }
 
@@ -27,12 +27,12 @@ export class PaymentService {
     return this.http.put<Payment>(`${this.baseURL}/${payment.id}`, payment)
   }
 
-  deletePayment(id : number) : Observable<void> {
+  deletePayment(id : number | string) : Observable<void> {
     return this.http.delete<void>(`${this.baseURL}/${id}`)
   }
-  getPaymentsByCustomerId(customerId: number): Observable<Payment[]> {
+  getPaymentsByCustomerId(customerId: number | string): Observable<Payment[]> {
     return this.http.get<Payment[]>(`${this.baseURL}`).pipe(
-      map(payments => payments.filter(payment => payment.customer_id === customerId))
+      map(payments => payments.filter(payment => payment.customer_id == `${customerId}`))
     );
   }
 

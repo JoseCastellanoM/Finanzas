@@ -1,5 +1,5 @@
 export class Customer {
-  id: number = -1;
+  id: string = "";
   name: string = "";
   dni: number =  0;
   phone: number = 0;

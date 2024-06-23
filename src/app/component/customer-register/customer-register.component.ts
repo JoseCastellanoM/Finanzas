@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { Customer } from '../../model/customer';
-import { UserService } from '../../service/user.service';
 import { CustomerService } from '../../service/customer.service';
 
 @Component({
@@ -26,7 +24,7 @@ export class CustomerRegisterComponent {
     }
 
     this.customer_service.getCustomers().subscribe(data => {
-      this.new_customer.id = data.length + 1;
+      this.new_customer.id = `${data.length + 1}`;
       this.customer_service.createCustomer(this.new_customer).subscribe(response => {
         console.log("Customer created")
         console.log(response);

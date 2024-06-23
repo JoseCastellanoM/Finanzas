@@ -39,7 +39,7 @@ export class OperationsListComponent implements OnInit {
 
   }
   loadCustomer(id: number): void {
-    this.customerService.getCustomer(id).subscribe((data: Customer) => {
+    this.customerService.getCustomer(`${id}`).subscribe((data: Customer) => {
       this.customer = data;
       this.loadPurchases(id);
       this.loadPayments(id);
