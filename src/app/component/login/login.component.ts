@@ -16,7 +16,7 @@ export class LoginComponent {
     /* TODO: Validaciones en login
       [ ] Debe permitir ver la contraseña ingresada
       [ ] No debe permitir ingresar con credenciales incorrectas
-      [ ] Debe permitir el ingreso con credenciales correctas
+      [x] Debe permitir el ingreso con credenciales correctas
     */
   }
 

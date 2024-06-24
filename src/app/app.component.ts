@@ -10,7 +10,7 @@ export class AppComponent {
   /* TODO: Features left
     [ ] Side bar para ir a pantallas
     [ ] Que se muestre el pago de la siguiente fecha
-    [ ] 
+    [ ] Validar cuantos pagos faltan para dar por pagada compra
 
   */
 }

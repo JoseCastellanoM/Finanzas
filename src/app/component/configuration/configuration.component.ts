@@ -20,6 +20,7 @@ export class ConfigurationComponent {
       [ ] El valor de la tasa moratoria debe estar entre 0 y 1;
       [ ] El limite de credito determinado por la aplicación es de 1000so y el credito brindado por la bodega no debe exceder este valor
       [ ] El limite de periodos de gracia es de 5 y los periodos de gracia otorgados por la bodega no debe superar este valor
+      [x] Se debe guardar correctamente todos los cambios de la bodega
     */
     
     this.user_service.getUser("1").subscribe(data => {

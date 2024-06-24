@@ -17,6 +17,7 @@ export class CustomerRegisterComponent {
       [ ] El dni debe estar entre 10000000 y 99999999
       [ ] El telefono debe estar entre 900000000 y 999999999
       [ ] La fecha no puede exceder la actual
+      [x] Se debe registrar correctamente el nuevo cliente
     */
     this.new_customer = new Customer;
   }
