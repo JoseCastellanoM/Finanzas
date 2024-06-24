@@ -44,7 +44,7 @@
                     <td>{{item.id}}</td>
                     <td class="text-start">{{item.name}}</td>
                     <td>
-                      <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-up-right-from-square"></i></button>
+                      <button type="button" class="btn btn-outline-secondary" [routerLink]="['/operaciones', item.id]"><i class="fa-solid fa-up-right-from-square"></i></button>
                     </td>
                   </tr>
                 </tbody>
@@ -58,13 +58,13 @@
         <div class="container-fluid">
           <div class="row align-items-center g-3">
             <div class="col-auto">
-              <div class="text-body-secondary">Fecha de pago:</div>
+              <div class="text-body-secondary">Fecha de registro de usuario:</div>
             </div>
             <div class="col">
-              <input type="date" class="form-control" placeholder="" aria-label="fecha de pago" disabled [(ngModel)]="selected_customer.payment_date">
+              <input type="date" class="form-control" placeholder="" aria-label="fecha de pago" [value]="selected_customer.payment_date | date: 'yyyy-MM-dd'" readonly>
             </div>
             <div class="col-12">
-              <select class="form-select" aria-label="seleccionar si registrar compra o registrar pago" [(ngModel)]="value_selection">
+              <select class="form-select" aria-label="seleccionar si registrar compra o registrar pago" [(ngModel)]="value_selection" (change)="update_customer_payments()">
                 <option value="1">Registrar compra</option>
                 <option value="2">Registrar pago</option>
               </select>
@@ -74,8 +74,10 @@
             <div class="col-12" [ngClass]="{'d-none': value_selection != 1}">
               <div class="row align-items-center g-3">
                 <div class="col-12">
+                  <div class="form-floating">
+                    <input type="number" class="form-control" placeholder="Valor de compra" aria-label="valor de compra" [(ngModel)]="this.new_purchase.value">
                   <label class="form-label">Valor de compra</label>
-                  <input type="number" class="form-control" placeholder="Valor de compra" aria-label="valor de compra" [(ngModel)]="this.new_purchase.value">
+                  </div>
                 </div>
                 <div class="col-12">
                   <select class="form-select" aria-label="seleccionar tipo de credito" [(ngModel)]="payment_method">
@@ -96,7 +98,7 @@
                   <textarea class="form-control" placeholder="Descripción" rows="5" [(ngModel)]="this.new_purchase.detail"></textarea>
                 </div>
                 <div class="col-12">
-                  <button type="submit" class="btn btn-primary w-100" (click)="register_purchase()">Registrar</button>
+                  <button type="submit" class="btn btn-warning w-100" (click)="register_purchase()">Registrar</button>
                 </div>
               </div>
             </div>
@@ -115,7 +117,7 @@
                   <tr *ngFor="let item of this.customer_payments">
                     <td>{{item.value.toFixed(1)+"0"}}</td>
                     <td>
-                      <button type="button" class="btn" [ngClass]="{'btn-primary': !item.status, 'btn-secondary': item.status}" [disabled]="item.status" (click)="pay_due(item)">{{item.status ? "Pagado" : "Pagar"}}</button>
+                      <button type="button" class="btn" [ngClass]="{'btn-warning': !item.status, 'btn-secondary': item.status}" [disabled]="item.status" (click)="pay_due(item)">{{item.status ? "Pagado" : "Pagar"}}</button>
                     </td>
                   </tr>
                   

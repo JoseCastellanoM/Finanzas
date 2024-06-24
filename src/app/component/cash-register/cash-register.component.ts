@@ -50,12 +50,16 @@ export class CashRegisterComponent {
   select_customer(user_id : string) {
     this.customer_service.getCustomer(user_id).subscribe( data => {
       this.selected_customer = data;
-      this.payment_service.getPaymentsByCustomerId(this.selected_customer.id).subscribe(data => {
-        this.customer_payments = data;
-        console.log("Payments");
-        console.log(data);
-      });
+      this.update_customer_payments();
     })
+  }
+
+  update_customer_payments() : void {
+    this.payment_service.getPaymentsByCustomerId(this.selected_customer.id).subscribe(data => {
+      this.customer_payments = data;
+      console.log("Payments");
+      console.log(data);
+    });
   }
   
   get_last_payment_date(first_date :  Date, last_date : Date, period : number) : Date {
@@ -80,6 +84,7 @@ export class CashRegisterComponent {
       this.new_purchase.status = false;
       this.new_purchase.type_of_credit = this.payment_method;
       this.new_purchase.periods = (this.payment_method == 2) ? this.new_purchase.periods : 1;
+      this.new_purchase.periods_left = this.new_purchase.periods;
       
       this.payment_service.getPayments().subscribe(data => {
         let credit_limit = this.global_user.credit_limit;
@@ -117,7 +122,7 @@ export class CashRegisterComponent {
         let equivalent_interest_rate = (this.global_user.interest_type == 1) ? (this.global_user.interest_rate * this.global_user.payment_time / 360) : ((1 + this.global_user.interest_rate)**(this.global_user.payment_time/360)-1);
         new_payment.value = this.new_purchase.value * (equivalent_interest_rate*(1 + equivalent_interest_rate)**this.new_purchase.periods) / ((1 + equivalent_interest_rate)**this.new_purchase.periods - 1);  
         new_payment.value = new_payment.value * (1 + equivalent_interest_rate)**(this.new_purchase.grace_periods ? this.global_user.grace_periods : 0)
-        console.log(equivalent_interest_rate);
+        
         for (let i = 1; i <= this.new_purchase.periods; i++) {
           new_payment.id = `${data.length + i}`;
           new_payment.customer_id = this.selected_customer.id;

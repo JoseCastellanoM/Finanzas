@@ -24,7 +24,18 @@ export class CustomerRegisterComponent {
     }
 
     this.customer_service.getCustomers().subscribe(data => {
+      let aux_variable = new Date(this.new_customer.payment_date);
+      
       this.new_customer.id = `${data.length + 1}`;
+      this.new_customer.payment_date = new Date(Date.now());
+      
+
+      
+      this.new_customer.payment_date.setFullYear(aux_variable.getUTCFullYear());
+      this.new_customer.payment_date.setMonth(aux_variable.getUTCMonth());
+      this.new_customer.payment_date.setDate(aux_variable.getUTCDate());
+      console.log(this.new_customer);
+
       this.customer_service.createCustomer(this.new_customer).subscribe(response => {
         console.log("Customer created")
         console.log(response);
