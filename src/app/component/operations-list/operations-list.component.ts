@@ -31,6 +31,11 @@ export class OperationsListComponent {
 
 
   constructor(private router : Router, private route: ActivatedRoute, private purchase_service: PurchaseService, private payment_service: PaymentService, private customer_service: CustomerService, private user_service : UserService) {
+    /* TODO: Validaciones en lista de operaciones
+      [ ] La fechas establecidas por el cliente deben ser validas
+      [ ] Se debe mostrar correctamente dentro de la fecha establecida
+      [ ] Se debe mostrar datos de la cuenta como pagos pendientes, la deuda total y el credito disponible del cliente
+    */
     this.date_beg = this.transform_date_to_date_input(new Date(Date.now()));
     this.date_end = this.transform_date_to_date_input(new Date(Date.now()));
     

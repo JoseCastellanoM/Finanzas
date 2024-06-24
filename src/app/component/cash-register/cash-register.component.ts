@@ -7,7 +7,6 @@ import { PaymentService } from '../../service/payment.service';
 import { Payment } from '../../model/payment';
 import { User } from '../../model/user';
 import { UserService } from '../../service/user.service';
-//import { format, addDays, subDays, differenceInDays } from 'date-fns';
 
 @Component({
   selector: 'app-cash-register',
@@ -25,10 +24,14 @@ export class CashRegisterComponent {
   customer_payments : Payment[] = [];
   new_purchase : Purchase = new Purchase;
   
-  
-
   constructor(private user_service : UserService, private customer_service : CustomerService, private purchase_service : PurchaseService, private payment_service : PaymentService){
-    this.user_service.getUser("1").subscribe(data => { // TODO: Change the paramete 1 by "1"
+    /* TODO: Validaciones para la caja
+      [ ] No se debe permitir registrar compra o pago sin seleccionar el usuario
+      [ ] El valor de compra no puede ser menor o igual 0
+      [ ] Para anualidad vencida el periodos de pago no puede ser menor o igual a 1
+      [ ] Se debe actualizar cada pago realizado
+    */
+    this.user_service.getUser("1").subscribe(data => {
       this.global_user = data;
     })
     customer_service.getCustomers().subscribe(data => {

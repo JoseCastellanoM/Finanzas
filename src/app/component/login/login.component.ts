@@ -13,7 +13,11 @@ export class LoginComponent {
   password : string = "";
 
   constructor(private user_service : UserService, private router : Router){
-
+    /* TODO: Validaciones en login
+      [ ] Debe permitir ver la contraseña ingresada
+      [ ] No debe permitir ingresar con credenciales incorrectas
+      [ ] Debe permitir el ingreso con credenciales correctas
+    */
   }
 
   login() : void {

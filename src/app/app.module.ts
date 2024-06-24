@@ -10,8 +10,6 @@ import { LoginComponent } from './component/login/login.component';
 import { CustomerRegisterComponent } from './component/customer-register/customer-register.component';
 import { ConfigurationComponent } from './component/configuration/configuration.component';
 import { CashRegisterComponent } from './component/cash-register/cash-register.component';
-import { PurchaseRegisterComponent } from './component/purchase-register/purchase-register.component';
-import { PaymentRegisterComponent } from './component/payment-register/payment-register.component';
 import { OperationsListComponent } from './component/operations-list/operations-list.component';
 
 
@@ -22,8 +20,6 @@ import { OperationsListComponent } from './component/operations-list/operations-
     CustomerRegisterComponent,
     ConfigurationComponent,
     CashRegisterComponent,
-    PurchaseRegisterComponent,
-    PaymentRegisterComponent,
     OperationsListComponent,
 
   ],

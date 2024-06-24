@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Lucia';
+  /* TODO: Features left
+    [ ] Side bar para ir a pantallas
+    [ ] Que se muestre el pago de la siguiente fecha
+    [ ] 
+
+  */
 }

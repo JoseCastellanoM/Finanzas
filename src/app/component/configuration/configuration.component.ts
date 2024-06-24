@@ -13,6 +13,15 @@ export class ConfigurationComponent {
   global_user : User = new User;
 
   constructor(private user_service : UserService, private router : Router){
+    /* TODO: Validaciones de la configuracion de usuario
+      [ ] El nombre de usuario no puede estar vacio
+      [ ] La nueva contraseña ingresada debe tener minimo 8 caracteres
+      [ ] El valor de la tasa de interes debe estar entre 0 y 1
+      [ ] El valor de la tasa moratoria debe estar entre 0 y 1;
+      [ ] El limite de credito determinado por la aplicación es de 1000so y el credito brindado por la bodega no debe exceder este valor
+      [ ] El limite de periodos de gracia es de 5 y los periodos de gracia otorgados por la bodega no debe superar este valor
+    */
+    
     this.user_service.getUser("1").subscribe(data => {
       this.global_user = data;
     });

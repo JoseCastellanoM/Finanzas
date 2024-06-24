@@ -11,6 +11,13 @@ export class CustomerRegisterComponent {
   new_customer : Customer;
 
   constructor(private customer_service : CustomerService) {
+    /* TODO: Validaciones en le registro del cliente
+      TODO Setup inputs with their respective label
+      [ ] Debe ser ingresado el nombre. Debe ser diferente de ""
+      [ ] El dni debe estar entre 10000000 y 99999999
+      [ ] El telefono debe estar entre 900000000 y 999999999
+      [ ] La fecha no puede exceder la actual
+    */
     this.new_customer = new Customer;
   }
 
