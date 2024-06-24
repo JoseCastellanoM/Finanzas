@@ -92,6 +92,7 @@ export class CashRegisterComponent {
   
         // First we filter the payments to know what are the pendient payments that are not paid until now
         data.forEach(item => {
+          // TODO: Use the moratorium payment to increment the value of the payments
           item.date = new Date(item.date);
           if (item.status == false) {
             credit_limit -= item.amortization;
@@ -122,7 +123,6 @@ export class CashRegisterComponent {
         let equivalent_interest_rate = (this.global_user.interest_type == 1) ? (this.global_user.interest_rate * this.global_user.payment_time / 360) : ((1 + this.global_user.interest_rate)**(this.global_user.payment_time/360)-1);
         new_payment.value = this.new_purchase.value * (equivalent_interest_rate*(1 + equivalent_interest_rate)**this.new_purchase.periods) / ((1 + equivalent_interest_rate)**this.new_purchase.periods - 1);  
         new_payment.value = new_payment.value * (1 + equivalent_interest_rate)**(this.new_purchase.grace_periods ? this.global_user.grace_periods : 0)
-        
         for (let i = 1; i <= this.new_purchase.periods; i++) {
           new_payment.id = `${data.length + i}`;
           new_payment.customer_id = this.selected_customer.id;

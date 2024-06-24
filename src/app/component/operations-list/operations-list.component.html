@@ -6,7 +6,7 @@
         <img src="../../assets/images/BodegaLucia002.png" class="object-fit-scale" alt="Logo de Bodega Lucia" style="height: 4rem;">
       </div>
       <div class="col col-auto">
-        <div class="display-6 fw-medium">Header</div>
+        <div class="display-6 fw-medium">Lista de operaciones</div>
       </div>
       <div class="col col-auto">
         <button type="menu" class="btn btn-outline-secondary"><i class="fa-solid fa-bars" style="width: 5rem;"></i></button>
@@ -18,102 +18,102 @@
 
 <section id="operation-list" class="">
   <div class="spacer-4"></div>
-  <div class="container">
-    <div class="row g-3">
-      <div class="col-12 col-lg-12">
-        <div class="row g-3 align-items-center">
-          <div class="col-6">
-            <div class="form-floating">
-              <input type="text" class="form-control" aria-label="nombre de cliente" [value]="this.customer.name" readonly>
-              <label>Nombre de cliente</label>
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-12 col-lg-12">
+          <div class="row g-3 align-items-center">
+            <div class="col-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" aria-label="nombre de cliente" [value]="this.customer.name" readonly>
+                <label>Nombre de cliente</label>
+              </div>
             </div>
-          </div>
-          <div class="col-3">
-            <div class="form-floating">
-              <input type="number" class="form-control" aria-label="DNI de cliente" [value]="this.customer.dni" readonly>
-              <label>DNI</label>
+            <div class="col-3">
+              <div class="form-floating">
+                <input type="number" class="form-control" aria-label="DNI de cliente" [value]="this.customer.dni" readonly>
+                <label>DNI</label>
+              </div>
             </div>
-          </div>
 
-          <div class="col-3">
-            <div class="form-floating">
-              <input type="date" class="form-control" aria-label="fecha de registro de cliente" [value]="this.customer.payment_date" readonly>
-              <label>Fechad de registro</label>
+            <div class="col-3">
+              <div class="form-floating">
+                <input type="date" class="form-control" aria-label="fecha de registro de cliente" [value]="this.customer.payment_date | date: 'yyyy-MM-dd'" readonly>
+                <label>Fechad de registro</label>
+              </div>
             </div>
-          </div>
 
-          <div class="col-3">
-            <div class="form-floating">
-              <input type="number" class="form-control" aria-label="telefono" [value]="this.customer.phone" readonly>
-              <label>Telefono</label>
+            <div class="col-3">
+              <div class="form-floating">
+                <input type="number" class="form-control" aria-label="telefono" [value]="this.customer.phone" readonly>
+                <label>Telefono</label>
+              </div>
             </div>
-          </div>
 
-          <div class="col-3">
-            <div class="form-floating">
-              <input type="number" class="form-control" aria-label="pagos pendientes" [value]="pendient_payments" readonly>
-              <label>Pagos pendientes</label>
+            <div class="col-3">
+              <div class="form-floating">
+                <input type="number" class="form-control" aria-label="pagos pendientes" [value]="pendient_payments" readonly>
+                <label>Pagos pendientes</label>
+              </div>
             </div>
-          </div>
 
-          <div class="col-3">
-            <div class="form-floating input-group">
-              <input type="number" class="form-control" aria-label="deuda total" [value]="total_debt.toFixed(2)" readonly>
-              <label>Deuda total</label>
-              <span class="input-group-text">S/.</span>
+            <div class="col-3">
+              <div class="form-floating input-group">
+                <input type="number" class="form-control" aria-label="deuda total" [value]="total_debt.toFixed(2)" readonly>
+                <label>Deuda total</label>
+                <span class="input-group-text">S/.</span>
+              </div>
             </div>
-          </div>
 
-          <div class="col-3">
-            <div class="form-floating input-group">
-              <input type="number" class="form-control" aria-label="limite de credito del cliente" [value]="credit_limit.toFixed(2)" readonly>
-              <label>Limite de credito</label>
-              <span class="input-group-text">S/.</span>
+            <div class="col-3">
+              <div class="form-floating input-group">
+                <input type="number" class="form-control" aria-label="limite de credito del cliente" [value]="credit_limit.toFixed(2)" readonly>
+                <label>Limite de credito</label>
+                <span class="input-group-text">S/.</span>
+              </div>
             </div>
-          </div>
 
-          
-          <!-- <div class="col-3">
-            <div class="form-floating input-group">
-              <input type="number" class="form-control" aria-label="siguiente pago total" [value]="" readonly>
-              <label>Siguiente pago (total)</label>
-              <span class="input-group-text">S/.</span>
+            
+            <!-- <div class="col-3">
+              <div class="form-floating input-group">
+                <input type="number" class="form-control" aria-label="siguiente pago total" [value]="" readonly>
+                <label>Siguiente pago (total)</label>
+                <span class="input-group-text">S/.</span>
+              </div>
             </div>
-          </div>
-          
-          <div class="col-8"></div> -->
-          <div class="col-12"></div>
+            
+            <div class="col-8"></div> -->
+            <div class="col-12"></div>
 
-          <div class="col-6">
-            <select class="form-select" [(ngModel)]="selected_option" aria-label="seleccionar si registrar compra o registrar pago">
-              <option value="1">Compras</option>
-              <option value="2">Pagos</option>
-            </select>
-          </div>
-
-          <div class="col-3">
-            <div class="form-floating">
-              <input type="date" class="form-control" placeholder="" aria-label="fecha de inicio" [(ngModel)]="date_beg" (change)="get_customer_operations()">
-              <label>Fecha de inicio</label>
+            <div class="col-6">
+              <select class="form-select" [(ngModel)]="selected_option" aria-label="seleccionar si registrar compra o registrar pago">
+                <option value="1">Compras</option>
+                <option value="2">Pagos</option>
+              </select>
             </div>
-          </div>
 
-          <div class="col-3">
-            <div class="form-floating">
-              <input type="date" class="form-control" aria-label="fecha de fin" [(ngModel)]="date_end" (change)="get_customer_operations()">
-              <label>Fecha de fin</label>
+            <div class="col-3">
+              <div class="form-floating">
+                <input type="date" class="form-control" aria-label="fecha de inicio" [min]="this.min_date | date: 'yyyy-MM-dd'" [max]="date_end" [(ngModel)]="date_beg" (change)="get_customer_operations()">
+                <label>Fecha de inicio</label>
+              </div>
+            </div>
+
+            <div class="col-3">
+              <div class="form-floating">
+                <input type="date" class="form-control" aria-label="fecha de fin" [min]="date_beg" [max]="this.max_date | date: 'yyyy-MM-dd'" [(ngModel)]="date_end" (change)="get_customer_operations()">
+                <label>Fecha de fin</label>
+              </div>
             </div>
           </div>
         </div>
+
+        
       </div>
 
-      
-    </div>
+      <div class="spacer-3"></div>
 
-    <div class="spacer-3"></div>
-
-    <!-- Tabla de Compras -->
-      <div *ngIf="this.selected_option == 1" class="col-12" style="max-height: 50vh; overflow-y: auto;">
+      <!-- Tabla de Compras -->
+      <div *ngIf="this.selected_option == 1 && this.purchases.length != 0" class="col-12" style="max-height: 50vh; overflow-y: auto;">
         <table class="table text-center">
           <thead class="table-warning align-middle">
             <tr>
@@ -128,8 +128,7 @@
           <tbody class="align-middle">
             <tr *ngFor="let item of purchases">
               <td>{{item.id}}</td>
-              <!-- <td>{{item.date | date: "dd/MM/yyyy"}}</td> -->
-              <td>{{item.date.toLocaleDateString()}}</td>
+              <td>{{item.date | date: 'dd/MM/yyyy'}}</td>
               <td class="text-start">{{item.detail}}</td>
               <td>{{(item.type_of_credit == 1) ? "Valor futuro" : "Anualidad vencida"}}</td>
               <td class="text-center">S/. {{item.value.toFixed(2)}}</td>
@@ -138,9 +137,14 @@
           </tbody>
         </table>
       </div>
+      <div *ngIf="this.purchases.length == 0 && this.selected_option == 1" class="row col-12 justify-content-center">
+        <div class="spacer-6"></div>
+        <div class="col-auto">No se encontraron compras</div>
+        <div class="spacer-6"></div>
+      </div>
 
-    <!-- Tabla de Pagos -->
-      <div *ngIf="selected_option == 2" class="col-12" style="max-height: 50vh; overflow-y: auto;">
+      <!-- Tabla de Pagos -->
+      <div *ngIf="selected_option == 2 && this.payments.length != 0" class="col-12" style="max-height: 50vh; overflow-y: auto;">
         <table class="table text-center">
           <thead class="table-warning align-middle">
             <tr>
@@ -163,9 +167,13 @@
                 <button type="button" class="btn" [ngClass]="{'btn-warning': !item.status, 'btn-secondary': item.status}" [disabled]="item.status">{{item.status ? "Pagado" : "Pagar"}}</button>
               </td>
             </tr>
-
           </tbody>
         </table>
+      </div>
+      <div *ngIf="this.payments.length == 0 && this.selected_option == 2" class="row col-12 justify-content-center">
+        <div class="spacer-6"></div>
+        <div class="col-auto">No se encontraron pagos</div>
+        <div class="spacer-6"></div>
       </div>
     </div>
   <div class="container"></div>
