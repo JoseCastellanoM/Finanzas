@@ -21,16 +21,13 @@ const routes: Routes = [
       { path: 'registrar-pago', component: PaymentRegisterComponent }
     ]
   },
-  { path: 'operaciones', component: OperationsListComponent,
-    children: [
-      { path: 'list/:id', component: OperationsListComponent}
-    ]
-  },
-
+  { path: 'operaciones/:id', component: OperationsListComponent },
+  
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

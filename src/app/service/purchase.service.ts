@@ -15,7 +15,7 @@ export class PurchaseService {
     return this.http.get<Purchase[]>(`${this.baseURL}`)
   }
 
-  getPurchase(id : number) : Observable<Purchase> {
+  getPurchase(id : number | string) : Observable<Purchase> {
     return this.http.get<Purchase>(`${this.baseURL}/${id}`)
   }
 
@@ -27,10 +27,10 @@ export class PurchaseService {
     return this.http.put<Purchase>(`${this.baseURL}/${purchase.id}`, purchase)
   }
 
-  deletePurchase(id : number) : Observable<void> {
+  deletePurchase(id : number | string) : Observable<void> {
     return this.http.delete<void>(`${this.baseURL}/${id}`)
   }
-  getPurchasesByCustomerId(customerId: number): Observable<Purchase[]> {
+  getPurchasesByCustomerId(customerId: number | string): Observable<Purchase[]> {
     return this.http.get<Purchase[]>(`${this.baseURL}`).pipe(
       map(purchases => purchases.filter(purchase => purchase.customer_id === `${customerId}`))
     );

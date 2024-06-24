@@ -15,9 +15,8 @@ export class CustomerService {
     return this.http.get<Customer[]>(`${this.baseURL}`)
   }
 
-  getCustomer(id : string) : Observable<Customer> {
-    return this.http.get<Customer>(`${this.baseURL}/${id}`)
-    
+  getCustomer(id : number | string) : Observable<Customer> {
+    return this.http.get<Customer>(`${this.baseURL}/${id}`) 
   }
 
   createCustomer(customer : Customer) : Observable<Customer> {
@@ -28,7 +27,7 @@ export class CustomerService {
     return this.http.put<Customer>(`${this.baseURL}/${customer.id}`, Customer)
   }
 
-  deleteCustomer(id : number) : Observable<void> {
+  deleteCustomer(id : number | string) : Observable<void> {
     return this.http.delete<void>(`${this.baseURL}/${id}`)
   }
 }
