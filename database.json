@@ -1,0 +1,145 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "username": "Andy",
+      "password": "andy",
+      "interest_rate": 0.5,
+      "interest_type": 2,
+      "moratorium_interest_rate": 0.2,
+      "credit_limit": 1000,
+      "grace_periods": 2,
+      "payment_time": 10
+    }
+  ],
+  "customers": [
+    {
+      "id": "1",
+      "name": "Andy",
+      "dni": 87654321,
+      "phone": 987654321,
+      "payment_date": "2024-06-24T12:19:03.458Z"
+    },
+    {
+      "id": "2",
+      "name": "Sandra",
+      "dni": 87654321,
+      "phone": 987654321,
+      "payment_date": "2024-06-22T12:19:16.789Z"
+    },
+    {
+      "id": "3",
+      "name": "Juan",
+      "dni": 87654321,
+      "phone": 987654321,
+      "payment_date": "2024-06-23T12:19:34.656Z"
+    },
+    {
+      "id": "4",
+      "name": "Jose",
+      "dni": 87654321,
+      "phone": 987654321,
+      "payment_date": "2024-06-20T12:19:42.488Z"
+    }
+  ],
+  "payments": [
+    {
+      "id": "1",
+      "value": 10.170217699844413,
+      "date": "2024-07-02T12:19:16.789Z",
+      "customer_id": "2",
+      "purchase_id": "1",
+      "amortization": 10.056314003047882,
+      "interest": 0.11390369679653034,
+      "status": false
+    },
+    {
+      "id": "2",
+      "value": 10.170217699844413,
+      "date": "2024-07-12T12:19:16.789Z",
+      "customer_id": "2",
+      "purchase_id": "1",
+      "amortization": 9.943685996952064,
+      "interest": 0.22653170289234836,
+      "status": false
+    },
+    {
+      "id": "3",
+      "value": 17.433961450734273,
+      "date": "2024-07-23T12:19:34.656Z",
+      "customer_id": "3",
+      "purchase_id": "2",
+      "amortization": 17.238705781912433,
+      "interest": 0.1952556688218401,
+      "status": true
+    },
+    {
+      "id": "4",
+      "value": 17.433961450734273,
+      "date": "2024-08-02T12:19:34.656Z",
+      "customer_id": "3",
+      "purchase_id": "2",
+      "amortization": 17.04563692394909,
+      "interest": 0.38832452678518337,
+      "status": false
+    },
+    {
+      "id": "5",
+      "value": 17.433961450734273,
+      "date": "2024-08-12T12:19:34.656Z",
+      "customer_id": "3",
+      "purchase_id": "2",
+      "amortization": 16.854730385152095,
+      "interest": 0.579231065582178,
+      "status": false
+    },
+    {
+      "id": "6",
+      "value": 16.181225362313878,
+      "date": "2024-07-04T12:19:03.458Z",
+      "customer_id": "1",
+      "purchase_id": "3",
+      "amortization": 16,
+      "interest": 0.18122536231387798,
+      "status": false
+    }
+  ],
+  "purchases": [
+    {
+      "id": "1",
+      "value": 20,
+      "detail": "- Yogurt\n- Leche de almendra",
+      "customer_id": "2",
+      "date": "2024-06-24T12:29:43.112Z",
+      "grace_periods": false,
+      "status": false,
+      "type_of_credit": "2",
+      "periods": 2,
+      "periods_left": 2
+    },
+    {
+      "id": "2",
+      "value": 50,
+      "detail": "- 6 paquetes de condones",
+      "customer_id": "3",
+      "date": "2024-06-24T12:31:58.689Z",
+      "grace_periods": true,
+      "status": false,
+      "type_of_credit": "2",
+      "periods": 3,
+      "periods_left": 3
+    },
+    {
+      "id": "3",
+      "value": 16,
+      "detail": "2 Inkachips",
+      "customer_id": "1",
+      "date": "2024-06-24T12:39:09.654Z",
+      "grace_periods": false,
+      "status": false,
+      "type_of_credit": 1,
+      "periods": 1,
+      "periods_left": 1
+    }
+  ]
+}
