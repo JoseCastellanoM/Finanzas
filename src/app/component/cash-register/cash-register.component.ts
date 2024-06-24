@@ -28,7 +28,7 @@ export class CashRegisterComponent {
   
 
   constructor(private user_service : UserService, private customer_service : CustomerService, private purchase_service : PurchaseService, private payment_service : PaymentService){
-    this.user_service.getUser(1).subscribe(data => { // TODO: Change the paramete 1 by "1"
+    this.user_service.getUser("1").subscribe(data => { // TODO: Change the paramete 1 by "1"
       this.global_user = data;
     })
     customer_service.getCustomers().subscribe(data => {
