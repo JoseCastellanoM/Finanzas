@@ -3,11 +3,11 @@
     {
       "id": "1",
       "username": "Andy",
-      "password": "andy",
-      "interest_rate": 0.5,
+      "password": "andygarcia",
+      "interest_rate": 0.9,
       "interest_type": 2,
-      "moratorium_interest_rate": 0.2,
-      "credit_limit": 1000,
+      "moratorium_interest_rate": 0.9,
+      "credit_limit": 300,
       "grace_periods": 2,
       "payment_time": 10
     }
@@ -40,6 +40,13 @@
       "dni": 87654321,
       "phone": 987654321,
       "payment_date": "2024-06-20T12:19:42.488Z"
+    },
+    {
+      "id": "5",
+      "name": "Sandra",
+      "dni": 87654321,
+      "phone": 987654321,
+      "payment_date": "2024-06-25T02:24:00.486Z"
     }
   ],
   "payments": [
@@ -102,6 +109,56 @@
       "amortization": 16,
       "interest": 0.18122536231387798,
       "status": false
+    },
+    {
+      "id": "11",
+      "value": 25.31061297757168,
+      "date": "2024-08-14T02:24:00.486Z",
+      "customer_id": "5",
+      "purchase_id": "4",
+      "amortization": 23.151913182130897,
+      "interest": 2.158699795440782,
+      "status": false
+    },
+    {
+      "id": "7",
+      "value": 25.31061297757168,
+      "date": "2024-07-05T02:24:00.486Z",
+      "customer_id": "5",
+      "purchase_id": "4",
+      "amortization": 24.86334221299529,
+      "interest": 0.44727076457639114,
+      "status": false
+    },
+    {
+      "id": "8",
+      "value": 25.31061297757168,
+      "date": "2024-07-15T02:24:00.486Z",
+      "customer_id": "5",
+      "purchase_id": "4",
+      "amortization": 24.423975292431763,
+      "interest": 0.8866376851399167,
+      "status": false
+    },
+    {
+      "id": "9",
+      "value": 25.31061297757168,
+      "date": "2024-07-25T02:24:00.486Z",
+      "customer_id": "5",
+      "purchase_id": "4",
+      "amortization": 23.992372544891786,
+      "interest": 1.318240432679893,
+      "status": false
+    },
+    {
+      "id": "10",
+      "value": 25.31061297757168,
+      "date": "2024-08-04T02:24:00.486Z",
+      "customer_id": "5",
+      "purchase_id": "4",
+      "amortization": 23.5683967675503,
+      "interest": 1.742216210021379,
+      "status": false
     }
   ],
   "purchases": [
@@ -140,6 +197,18 @@
       "type_of_credit": 1,
       "periods": 1,
       "periods_left": 1
+    },
+    {
+      "id": "4",
+      "value": 120,
+      "detail": "",
+      "customer_id": "5",
+      "date": "2024-06-25T02:26:41.107Z",
+      "grace_periods": false,
+      "status": false,
+      "type_of_credit": "2",
+      "periods": 5,
+      "periods_left": 5
     }
   ]
 }

@@ -25,15 +25,7 @@ export class CashRegisterComponent {
   new_purchase : Purchase = new Purchase;
   
   constructor(private user_service : UserService, private customer_service : CustomerService, private purchase_service : PurchaseService, private payment_service : PaymentService){
-    /* TODO: Validaciones para la caja
-      [ ] No se debe permitir registrar compra o pago sin seleccionar el usuario
-      [ ] El valor de compra no puede ser menor o igual 0
-      [ ] Para anualidad vencida el periodos de pago no puede ser menor o igual a 1
-      [x] Cada que se realize un pago debe actualizarse su estado
-      [x] Cuando se registre la compra se deben generar los pagos asociados a esta
-      [x] Cuando se seleccione registrar compra se debe mostrar formulario para registrarla
-      [x] Cuando se seleccione registrar pago se debe mostrar lista de pagos y su estado
-    */
+
     this.user_service.getUser("1").subscribe(data => {
       this.global_user = data;
     })

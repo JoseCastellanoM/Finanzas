@@ -27,11 +27,24 @@ export class ConfigurationComponent {
       this.global_user = data;
     });
   }
+  validate_user(user: User) : boolean {
+    return ( (user.username != "")
+      && (user.password.length >= 8)
+      && (user.interest_rate > 0.08 && user.interest_rate < 0.1)
+      && (user.moratorium_interest_rate > 0.08 && user.moratorium_interest_rate < 0.1)
+      && (user.credit_limit >= 10 && user.credit_limit <= 500)
+      && (user.grace_periods >= 1 && user.grace_periods <= 5)
+    );
+  }
 
   update_user() : void {
-    this.user_service.updateUser(this.global_user).subscribe(data => {
-      console.log("User updated");
-      console.log(data);
-    })
+    if (this.validate_user(this.global_user)) {
+      this.user_service.updateUser(this.global_user).subscribe(data => {
+        console.log("User updated");
+        console.log(data);
+      })
+    } else {
+      console.log("Datos incorrectos")
+    }
   }
 }

@@ -9,7 +9,7 @@
         <div class="display-6 fw-medium">Bodega Lucia</div>
       </div>
       <div class="col col-auto">
-        <button type="menu" class="btn btn-outline-secondary"><i class="fa-solid fa-bars" style="width: 5rem;"></i></button>
+        <button type="menu" class="btn btn-outline-secondary" [routerLink]="['/configuracion']"><i class="fa-solid fa-gear" style="width: 5rem;"></i></button>
       </div>
     </div>
     <div class="row spacer-3"></div>
@@ -29,6 +29,9 @@
                 <input type="text" class="form-control" placeholder="" aria-label="buscar usuario" [(ngModel)]="search_string">
                 <button type="button" class="btn btn-outline-secondary" (click)="search_customer()"><i class="fa-solid fa-magnifying-glass"></i></button>
               </div>
+            </div>
+            <div class="col-auto">
+              <button type="button" class="btn btn-warning" [routerLink]="['/registrar-cliente']">+ Nuevo cliente</button>
             </div>
             <div class="col-12" style="max-height: 70vh; overflow-y: auto;">
               <table class="table table-hover border text-center align-middle">

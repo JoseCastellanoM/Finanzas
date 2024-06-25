@@ -6,10 +6,10 @@
           <img src="../../assets/images/BodegaLucia002.png" class="object-fit-scale" alt="Logo de Bodega Lucia" style="height: 4rem;">
         </div>
         <div class="col col-auto">
-          <div class="display-6 fw-medium">Configuracion</div>
+          <div class="display-6 fw-medium">Configuración</div>
         </div>
         <div class="col col-auto">
-          <button type="menu" class="btn btn-outline-secondary"><i class="fa-solid fa-bars" style="width: 5rem;"></i></button>
+          <button type="menu" class="btn btn-outline-secondary" [routerLink]="['/caja']"><i class="fa-solid fa-home" style="width: 5rem;"></i></button>
         </div>
       </div>
       <div class="row spacer-3"></div>
@@ -17,70 +17,69 @@
   </div>
 
 <section id="configuration" class="d-block">  <!-- d-none / d-block -->
-    <div class="container">
-      <div class="spacer-6"></div>
-      <div class="row w-75 mx-auto">
-        <div class="row g-3 align-items-center">
-          
-          <div class="col-12">
-            <div class="form-floating">
-              <input type="text" class="form-control" placeholder="" aria-label="nombre de usuario" [(ngModel)]="this.global_user.username">
-              <label>Nombre de usuario</label>
-            </div>
+  <div class="container">
+    <div class="spacer-6"></div>
+    <div class="row w-75 mx-auto">
+      <div class="row g-3 align-items-center">
+        <div class="col-12">
+          <div class="form-floating">
+            <input type="text" class="form-control" placeholder="" aria-label="nombre de usuario" [(ngModel)]="this.global_user.username">
+            <label>Nombre de usuario</label>
           </div>
+        </div>
 
-          <div class="col-12">
-            <div class="input-group">
-              <div class="form-floating">
-                <input [type]="show_password ? 'text' : 'password'" class="form-control" placeholder="" aria-label="contraseña" aria-describedby="button-addon-password" id="password-input" [(ngModel)]="this.global_user.password">
-                <label>Contraseña</label>
-              </div>
-              <button type="button" class="btn btn-outline-secondary" id="button-addon-password" (click)="show_password = !show_password">
-                <i class="fa-solid fa-eye" [ngClass]="{'fa-eye-slash': show_password, 'fa-eye': !show_password}"></i>
-              </button>
-            </div>
-          </div>
-          
-          
-          <div class="col-4">
+        <div class="col-12">
+          <div class="input-group">
             <div class="form-floating">
-              <input type="number" class="form-control" placeholder="" aria-label="tasa de interes" [(ngModel)]="this.global_user.interest_rate">
-              <label>Tasa de interes</label>
+              <input [type]="show_password ? 'text' : 'password'" class="form-control" placeholder="" aria-label="contraseña" aria-describedby="button-addon-password" id="password-input" [(ngModel)]="this.global_user.password">
+              <label>Contraseña</label>
             </div>
+            <button type="button" class="btn btn-outline-secondary" id="button-addon-password" (click)="show_password = !show_password">
+              <i class="fa-solid fa-eye" [ngClass]="{'fa-eye-slash': show_password, 'fa-eye': !show_password}"></i>
+            </button>
           </div>
-          <div class="col-4">
-            <div class="form-floating">
-              <input type="number" class="form-control" placeholder="" aria-label="tasa de interes moratoria" [(ngModel)]="this.global_user.moratorium_interest_rate">
-              <label>Tasa moratoria</label>
-            </div>
+        </div>
+        
+        
+        <div class="col-4">
+          <div class="form-floating">
+            <input type="number" class="form-control" placeholder="" aria-label="tasa de interes" step="0.01" min="0.08" max="0.1" [(ngModel)]="this.global_user.interest_rate">
+            <label>Tasa de interes</label>
           </div>
-          <div class="col-4">
-            <div class="input-group">
-              <select class="form-select" aria-label="seleccionar tipo de interes moratorio" [(ngModel)]="this.global_user.interest_type">
-                <option value="1">Tasa nominal</option>
-                <option value="2">Tasa efectiva</option>
-              </select>
-            </div>
+        </div>
+        <div class="col-4">
+          <div class="form-floating">
+            <input type="number" class="form-control" placeholder="" aria-label="tasa de interes moratoria" step="0.01" min="0.08" max="0.1" [(ngModel)]="this.global_user.moratorium_interest_rate">
+            <label>Tasa moratoria</label>
           </div>
+        </div>
+        <div class="col-4">
+          <div class="input-group">
+            <select class="form-select" aria-label="seleccionar tipo de interes moratorio" [(ngModel)]="this.global_user.interest_type">
+              <option value="1">Tasa nominal</option>
+              <option value="2">Tasa efectiva</option>
+            </select>
+          </div>
+        </div>
 
-          <div class="col-6">
-            <div class="form-floating">
-              <input type="number" class="form-control" placeholder="" aria-label="limite de credito" [(ngModel)]="this.global_user.credit_limit">
-              <label>Limite de credito</label>
-            </div>
+        <div class="col-6">
+          <div class="form-floating">
+            <input type="number" class="form-control" placeholder="" aria-label="limite de credito" min="20" max="500" [(ngModel)]="this.global_user.credit_limit">
+            <label>Limite de credito</label>
           </div>
-          
-          <div class="col-6">
-            <div class="form-floating">
-              <input type="number" class="form-control" placeholder="" aria-label="periodos de gracia" [(ngModel)]="this.global_user.grace_periods">
-              <label>Peridos de gracia</label>
-            </div>
+        </div>
+        
+        <div class="col-6">
+          <div class="form-floating">
+            <input type="number" class="form-control" placeholder="" aria-label="periodos de gracia" min="1" max="5" [(ngModel)]="this.global_user.grace_periods">
+            <label>Peridos de gracia</label>
           </div>
+        </div>
 
-          <div class="col-12 text-center mt-4">
-            <button type="submit" class="btn btn-warning" (click)="update_user()">Guardar cambios</button>
-          </div>
+        <div class="col-12 text-center mt-4">
+          <button type="submit" class="btn btn-warning" (click)="update_user()">Guardar cambios</button>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
