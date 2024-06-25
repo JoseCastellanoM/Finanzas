@@ -78,7 +78,7 @@
               <div class="row align-items-center g-3">
                 <div class="col-12">
                   <div class="form-floating">
-                    <input type="number" class="form-control" placeholder="Valor de compra" aria-label="valor de compra" [(ngModel)]="this.new_purchase.value">
+                    <input type="number" class="form-control" placeholder="Valor de compra" aria-label="valor de compra" [min]="5" [max]="this.global_user.credit_limit" [(ngModel)]="this.new_purchase.value">
                   <label class="form-label">Valor de compra</label>
                   </div>
                 </div>

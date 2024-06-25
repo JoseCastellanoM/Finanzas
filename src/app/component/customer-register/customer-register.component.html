@@ -34,15 +34,19 @@
               <label>Telefono</label>
             </div>
           </div>
-          <div class="col.12 form-floating">
-            <input type="number" class="form-control" placeholder="DNI" aria-label="dni" [(ngModel)]="new_customer.dni">
+          <div class="col.12">
+            <div class="form-floating">
+              <input type="number" class="form-control" placeholder="DNI" aria-label="dni" [(ngModel)]="new_customer.dni">
             <label>DNI</label>
+            </div>
           </div>
-          <div class="col-12 form-floating">
-            <input type="date" class="form-control" placeholder="Fecha de pago" aria-label="fecha de pago" [min]="min_date | date: 'yyyy-MM-dd'" [max]="max_date | date: 'yyyy-MM-dd'" [(ngModel)]="new_customer.payment_date">
-            <label>Fecha de pago</label>
+          <div class="col-12">
+            <div class="form-floating">
+              <input type="date" class="form-control" placeholder="Fecha de pago" aria-label="fecha de pago" [min]="min_date | date: 'yyyy-MM-dd'" [max]="max_date | date: 'yyyy-MM-dd'" [(ngModel)]="new_customer.payment_date">
+              <label>Fecha de pago</label>
+            </div>
           </div>
-          <div class="col-12 form-floating">
+          <div class="col-12">
             <button type="submit" class="btn btn-warning w-100" (click)="register_customer()">Registrar</button>
           </div>  
         </div>

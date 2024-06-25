@@ -17,18 +17,11 @@ export class CustomerRegisterComponent {
   
 
   constructor(private customer_service : CustomerService, private user_service : UserService) {
-    /* TODO: Validaciones en le registro del cliente
-      TODO Setup inputs with their respective label
-      [ ] Debe ser ingresado el nombre. Debe ser diferente de ""
-      [ ] El dni debe estar entre 10000000 y 99999999
-      [ ] El telefono debe estar entre 900000000 y 999999999
-      [ ] La fecha no puede exceder la actual
-      [x] Se debe registrar correctamente el nuevo cliente
-    */
+    
     this.new_customer = new Customer;
     this.user_service.getUser("1").subscribe(data => {
       this.global_user = data;
-      this.min_date.setDate(this.min_date.getDate() - this.global_user.payment_time);
+      this.min_date = new Date(this.min_date.getTime() - (this.global_user.payment_time * 24 * 60 * 60 * 1000))
     })
   }
 

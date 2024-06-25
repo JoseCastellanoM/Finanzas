@@ -25,7 +25,10 @@ export class CashRegisterComponent {
   new_purchase : Purchase = new Purchase;
   
   constructor(private user_service : UserService, private customer_service : CustomerService, private purchase_service : PurchaseService, private payment_service : PaymentService){
-
+    /* TODO: Validaciones para la caja
+      [ ] El valor de compra no puede ser menor o igual 0
+      [ ] Para anualidad vencida el periodos de pago no puede ser menor o igual a 1
+    */
     this.user_service.getUser("1").subscribe(data => {
       this.global_user = data;
     })
@@ -99,6 +102,10 @@ export class CashRegisterComponent {
             }
           }
         })
+
+        if(!(this.new_purchase.value >= 1)) {
+          console.log("Incorrecto monto de compra")
+        }
   
         if (pendient_payments.length > 0) {
           console.log("Tienes pagos pendientes: ");
@@ -107,14 +114,13 @@ export class CashRegisterComponent {
         }
   
         if (this.new_purchase.value > credit_limit) {
-          console.log("Your credit limit now is " + credit_limit);
+          console.log("Tu actual limite de credito es: s" + credit_limit);
           return;
         }
 
         // Then we create purchase and payments
         this.purchase_service.createPurchase(this.new_purchase).subscribe(data => {
-          console.log("New purchase created");
-          console.log(data);
+          console.log("Nueva compra creada");
         });
 
         let new_payment : Payment = new Payment;
@@ -130,9 +136,9 @@ export class CashRegisterComponent {
           new_payment.status = false;
           new_payment.date = this.get_last_payment_date(this.selected_customer.payment_date, new Date(Date.now()), this.global_user.payment_time);
           new_payment.date.setDate(new_payment.date.getDate() + ((i + (this.new_purchase.grace_periods == true ? this.global_user.grace_periods : 0)) * this.global_user.payment_time));
-          console.log(new_payment);
+          
           this.payment_service.createPayment(new_payment).subscribe(data => {
-            console.log(data);
+            
           });
         }
         

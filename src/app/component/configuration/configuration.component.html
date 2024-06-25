@@ -62,17 +62,24 @@
           </div>
         </div>
 
-        <div class="col-6">
+        <div class="col-4">
           <div class="form-floating">
             <input type="number" class="form-control" placeholder="" aria-label="limite de credito" min="20" max="500" [(ngModel)]="this.global_user.credit_limit">
             <label>Limite de credito</label>
           </div>
         </div>
         
-        <div class="col-6">
+        <div class="col-4">
           <div class="form-floating">
             <input type="number" class="form-control" placeholder="" aria-label="periodos de gracia" min="1" max="5" [(ngModel)]="this.global_user.grace_periods">
-            <label>Peridos de gracia</label>
+            <label>Periodos de gracia</label>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <div class="form-floating">
+            <input type="number" class="form-control" placeholder="" aria-label="periodos de pago" min="1" max="30" [(ngModel)]="this.global_user.payment_time">
+            <label>Periodo de pago(dias)</label>
           </div>
         </div>
 
