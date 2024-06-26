@@ -1,15 +1,15 @@
-<div id="header" class="shadow rounded-0">
+<div id="header" class="shadow rounded-0" style="background-color: #47738C; color: #ffffff;">
     <div class="container">
       <div class="row spacer-3"></div>
       <div class="row align-items-center justify-content-between">
         <div class="col-auto d-none d-sm-block">
-          <img src="../../assets/images/BodegaLucia002.png" class="object-fit-scale" alt="Logo de Bodega Lucia" style="height: 4rem;">
+          <img src="../../assets/images/LogoLupitaNavbar.png" class="object-fit-scale" alt="Logo Abarrotes Lupita" style="height: 4rem;">
         </div>
         <div class="col col-auto">
           <div class="display-6 fw-medium">Configuración</div>
         </div>
         <div class="col col-auto">
-          <button type="menu" class="btn btn-outline-secondary" [routerLink]="['/caja']"><i class="fa-solid fa-home" style="width: 5rem;"></i></button>
+          <button type="menu" class="btn btn-outline-light" [routerLink]="['/caja']"><i class="fa-solid fa-home" style="width: 5rem;"></i></button>
         </div>
       </div>
       <div class="row spacer-3"></div>
@@ -39,8 +39,8 @@
             </button>
           </div>
         </div>
-        
-        
+
+
         <div class="col-4">
           <div class="form-floating">
             <input type="number" class="form-control" placeholder="" aria-label="tasa de interes" step="0.01" min="0.08" max="0.1" [(ngModel)]="this.global_user.interest_rate">
@@ -68,7 +68,7 @@
             <label>Limite de credito</label>
           </div>
         </div>
-        
+
         <div class="col-4">
           <div class="form-floating">
             <input type="number" class="form-control" placeholder="" aria-label="periodos de gracia" min="1" max="5" [(ngModel)]="this.global_user.grace_periods">
@@ -84,7 +84,12 @@
         </div>
 
         <div class="col-12 text-center mt-4">
-          <button type="submit" class="btn btn-warning" (click)="update_user()">Guardar cambios</button>
+          <button type="submit" class="btn btn-warning" (click)="update_user()"
+            onmouseover="this.style.backgroundColor='#7abbbd'; this.style.borderColor='#7abbbd'; this.style.color='#112244';"
+            onmouseout="this.style.backgroundColor='#94E0E4'; this.style.borderColor='#94E0E4'; this.style.color='#112244';"
+            style="background-color: #94E0E4; border-color: #94E0E4; color: #112244;">
+            Guardar cambios
+          </button>
         </div>
       </div>
     </div>

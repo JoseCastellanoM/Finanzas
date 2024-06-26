@@ -13,14 +13,14 @@ export class ConfigurationComponent {
   global_user : User = new User;
 
   constructor(private user_service : UserService, private router : Router){
-    
+
     this.user_service.getUser("1").subscribe(data => {
       this.global_user = data;
     });
   }
   validate_user(user: User) : boolean {
     return ( (user.username != "")
-      && (user.password.length >= 8)
+      && (user.password.length <= 8)
       && (user.interest_rate > 0.08 && user.interest_rate < 0.1)
       && (user.moratorium_interest_rate > 0.08 && user.moratorium_interest_rate < 0.1)
       && (user.credit_limit >= 10 && user.credit_limit <= 500)

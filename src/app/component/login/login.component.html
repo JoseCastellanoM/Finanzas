@@ -1,12 +1,12 @@
-<div id="header" class="shadow rounded-0">
+<div id="header" class="shadow rounded-0" style="background-color: #47738C; color: #ffffff;">
   <div class="container">
     <div class="row spacer-3"></div>
     <div class="row align-items-center justify-content-between">
       <div class="col-auto d-none d-sm-block">
-        <img src="../../assets/images/BodegaLucia002.png" class="object-fit-scale" alt="Logo de Bodega Lucia" style="height: 4rem;">
+        <img src="../../assets/images/LogoLupitaNavbar.png" class="object-fit-scale" alt="Logo Abarrotes Lupita" style="height: 4rem;">
       </div>
       <div class="col col-auto">
-        <div class="display-6 fw-medium">Bodega Lucia</div>
+        <div class="display-6 fw-medium">Abarrotes Lupita</div>
       </div>
       <div class="col col-2"></div>
     </div>
@@ -17,7 +17,7 @@
 <section id="login">
   <div class="container">
     <div class="spacer-6 d-xl-none"></div>
-    <div class="row align-items-end justify-content-center">
+    <div class="row align-items-center justify-content-center">
       <div class="col-sm-8 col-xl-6">
         <div class="row text-center justify-content-center">
           <div class="col-10 col-lg-8 col-xl-8">
@@ -42,17 +42,22 @@
             <div class="row spacer-3"></div>
             <div class="row px-4">
               <div class="col">
-                <button type="submit" class="btn btn-primary w-100" (click)="login()">Ingresar</button>
+                <button type="submit" class="btn btn-primary w-100" (click)="login()"
+                onmouseover="this.style.backgroundColor='#7abbbd'; this.style.borderColor='#7abbbd'; this.style.color='#112244';"
+                onmouseout="this.style.backgroundColor='#94E0E4'; this.style.borderColor='#94E0E4'; this.style.color='#112244';"
+                style="background-color: #94E0E4; border-color: #94E0E4; color: #112244;">
+                Ingresar
+              </button>
               </div>
             </div>
             <div class="row spacer-3"></div>
           </div>
-          
+
         </div>
       </div>
-      <div class="col-6 d-none d-xl-block">
+      <div class="col-4 d-none d-xl-block">
         <div class="">
-          <img src="../../../assets/images/store.png" alt="login-referential-image" cla>
+          <img src="../../../assets/images/LogoLupita.png" alt="Logo Lupita" cla>
         </div>
       </div>
     </div>

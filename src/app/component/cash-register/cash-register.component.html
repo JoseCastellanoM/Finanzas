@@ -1,15 +1,15 @@
-<div id="header" class="shadow rounded-0">
+<div id="header" class="shadow rounded-0" style="background-color: #47738C; color: #ffffff;">
   <div class="container">
     <div class="row spacer-3"></div>
     <div class="row align-items-center justify-content-between">
       <div class="col-auto d-none d-sm-block">
-        <img src="../../assets/images/BodegaLucia002.png" class="object-fit-scale" alt="Logo de Bodega Lucia" style="height: 4rem;">
+        <img src="../../assets/images/LogoLupitaNavbar.png" class="object-fit-scale" alt="Logo Abarrotes Lupita" style="height: 4rem;">
       </div>
       <div class="col col-auto">
-        <div class="display-6 fw-medium">Bodega Lucia</div>
+        <div class="display-6 fw-medium">Abarrotes Lupita</div>
       </div>
       <div class="col col-auto">
-        <button type="menu" class="btn btn-outline-secondary" [routerLink]="['/configuracion']"><i class="fa-solid fa-gear" style="width: 5rem;"></i></button>
+        <button type="menu" class="btn btn-outline-light" [routerLink]="['/configuracion']"><i class="fa-solid fa-gear" style="width: 5rem;"></i></button>
       </div>
     </div>
     <div class="row spacer-3"></div>
@@ -27,15 +27,20 @@
             <div class="col">
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="" aria-label="buscar usuario" [(ngModel)]="search_string">
-                <button type="button" class="btn btn-outline-secondary" (click)="search_customer()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button type="button" class="btn btn-info" (click)="search_customer()"><i class="fa-solid fa-magnifying-glass"></i></button>
               </div>
             </div>
             <div class="col-auto">
-              <button type="button" class="btn btn-warning" [routerLink]="['/registrar-cliente']">+ Nuevo cliente</button>
+              <button type="button" class="btn btn-warning" [routerLink]="['/registrar-cliente']"
+                onmouseover="this.style.backgroundColor='#7abbbd'; this.style.borderColor='#7abbbd'; this.style.color='#112244';"
+                onmouseout="this.style.backgroundColor='#94E0E4'; this.style.borderColor='#94E0E4'; this.style.color='#112244';"
+                style="background-color: #94E0E4; border-color: #94E0E4; color: #112244;">
+                + Nuevo cliente
+              </button>
             </div>
             <div class="col-12" style="max-height: 70vh; overflow-y: auto;">
               <table class="table table-hover border text-center align-middle">
-                <thead class="text-uppercase table-warning">
+                <thead class="text-uppercase table-info">
                   <tr>
                     <th scope="col" class="col-3">ID usuario</th>
                     <th scope="col" class="col-5">Cliente</th>
@@ -101,7 +106,12 @@
                   <textarea class="form-control" placeholder="Descripción" rows="5" [(ngModel)]="this.new_purchase.detail"></textarea>
                 </div>
                 <div class="col-12">
-                  <button type="submit" class="btn btn-warning w-100" (click)="register_purchase()">Registrar</button>
+                  <button type="submit" class="btn btn-warning w-100" (click)="register_purchase()"
+                    onmouseover="this.style.backgroundColor='#7abbbd'; this.style.borderColor='#7abbbd'; this.style.color='#112244';"
+                    onmouseout="this.style.backgroundColor='#94E0E4'; this.style.borderColor='#94E0E4'; this.style.color='#112244';"
+                    style="background-color: #94E0E4; border-color: #94E0E4; color: #112244;">
+                    Registrar
+                  </button>
                 </div>
               </div>
             </div>
@@ -109,23 +119,28 @@
             <!-- Registrar pago -->
             <div class="col-12" style="max-height: 60vh; overflow-y: auto;" [ngClass]="{'d-none': value_selection != 2}">
               <table class="table table-bordered border rounded-3 text-center align-middle">
-                <thead class="table-warning">
+                <thead class="table-info">
                   <tr>
                     <th scope="col" class="col-7">Monto</th>
                     <th scope="col" class="col-4">Estado</th>
                   </tr>
                 </thead>
-                
+
                 <tbody>
                   <tr *ngFor="let item of this.customer_payments">
                     <td>{{item.value.toFixed(1)+"0"}}</td>
                     <td>
-                      <button type="button" class="btn" [ngClass]="{'btn-warning': !item.status, 'btn-secondary': item.status}" [disabled]="item.status" (click)="pay_due(item)">{{item.status ? "Pagado" : "Pagar"}}</button>
+                      <button type="button" class="btn" [ngClass]="{'btn-warning': !item.status, 'btn-secondary': item.status}" [disabled]="item.status" (click)="pay_due(item)"
+                        onmouseover="this.style.backgroundColor='#7abbbd'; this.style.borderColor='#7abbbd'; this.style.color='#112244';"
+                        onmouseout="this.style.backgroundColor='#94E0E4'; this.style.borderColor='#94E0E4'; this.style.color='#112244';"
+                        style="background-color: #94E0E4; border-color: #94E0E4; color: #112244;">
+                        {{item.status ? "Pagado" : "Pagar"}}
+                      </button>
                     </td>
                   </tr>
-                  
+
                 </tbody>
-              
+
               </table>
             </div>
 
