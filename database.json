@@ -2,8 +2,8 @@
   "user": [
     {
       "id": "1",
-      "username": "Andy",
-      "password": "andygarcia",
+      "username": "joc",
+      "password": "joc",
       "interest_rate": 0.09,
       "interest_type": 2,
       "moratorium_interest_rate": 0.09,
@@ -15,35 +15,35 @@
   "customers": [
     {
       "id": "1",
-      "name": "Andy",
+      "name": "Andy Pérez Martínez",
       "dni": 87654321,
       "phone": 987654321,
       "payment_date": "2024-06-24T12:19:03.458Z"
     },
     {
       "id": "2",
-      "name": "Sandra",
+      "name": "Sandra García López",
       "dni": 87654321,
       "phone": 987654321,
       "payment_date": "2024-06-22T12:19:16.789Z"
     },
     {
       "id": "3",
-      "name": "Juan",
+      "name": "Juan Rodríguez Martínez",
       "dni": 87654321,
       "phone": 987654321,
       "payment_date": "2024-06-23T12:19:34.656Z"
     },
     {
       "id": "4",
-      "name": "Jose",
+      "name": "José Ramírez Sánchez",
       "dni": 87654321,
       "phone": 987654321,
       "payment_date": "2024-06-20T12:19:42.488Z"
     },
     {
       "id": "5",
-      "name": "Sandra",
+      "name": "Laura Gómez Fernández",
       "dni": 87654321,
       "phone": 987654321,
       "payment_date": "2024-06-25T02:24:00.486Z"
@@ -177,7 +177,7 @@
     {
       "id": "2",
       "value": 50,
-      "detail": "- 6 paquetes de condones",
+      "detail": "- 6 paquetes de galletas",
       "customer_id": "3",
       "date": "2024-06-24T12:31:58.689Z",
       "grace_periods": true,
