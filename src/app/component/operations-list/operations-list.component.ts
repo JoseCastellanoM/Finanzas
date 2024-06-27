@@ -91,7 +91,8 @@ export class OperationsListComponent {
       this.max_date.setDate(this.max_date.getDate()+1);
       
       this.credit_limit = this.global_user.credit_limit;
-      this.total_debt, this.pendient_payments = 0;
+      this.total_debt = 0;
+      this.pendient_payments = 0;
       
       for (let i = 0; i < data.length; i++) {
         if (data[i].status == false) {

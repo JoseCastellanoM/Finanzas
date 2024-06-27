@@ -15,184 +15,19 @@
   "customers": [
     {
       "id": "1",
-      "name": "Andy Pérez Martínez",
-      "dni": 87654321,
-      "phone": 987654321,
-      "payment_date": "2024-06-24T12:19:03.458Z"
-    },
-    {
-      "id": "2",
-      "name": "Sandra García López",
-      "dni": 87654321,
-      "phone": 987654321,
-      "payment_date": "2024-06-22T12:19:16.789Z"
-    },
-    {
-      "id": "3",
-      "name": "Juan Rodríguez Martínez",
-      "dni": 87654321,
-      "phone": 987654321,
-      "payment_date": "2024-06-23T12:19:34.656Z"
-    },
-    {
-      "id": "4",
-      "name": "José Ramírez Sánchez",
-      "dni": 87654321,
-      "phone": 987654321,
-      "payment_date": "2024-06-20T12:19:42.488Z"
-    },
-    {
-      "id": "5",
-      "name": "Laura Gómez Fernández",
-      "dni": 87654321,
-      "phone": 987654321,
-      "payment_date": "2024-06-25T02:24:00.486Z"
-    },
-    {
-      "id": "6",
-      "name": "Juan Carlos Saravia Inga",
-      "dni": 76344343,
-      "phone": 913234138,
-      "payment_date": "2024-06-27T19:53:24.837Z"
+      "name": "Juan Carlos",
+      "dni": 76346734,
+      "phone": 913234137,
+      "payment_date": "2024-06-27T21:48:03.671Z"
     }
   ],
   "payments": [
     {
       "id": "1",
-      "value": 10.170217699844413,
-      "date": "2024-07-02T12:19:16.789Z",
-      "customer_id": "2",
-      "purchase_id": "1",
-      "amortization": 10.056314003047882,
-      "interest": 0.11390369679653034,
-      "status": true
-    },
-    {
-      "id": "2",
-      "value": 10.170217699844413,
-      "date": "2024-07-12T12:19:16.789Z",
-      "customer_id": "2",
-      "purchase_id": "1",
-      "amortization": 9.943685996952064,
-      "interest": 0.22653170289234836,
-      "status": true
-    },
-    {
-      "id": "3",
-      "value": 17.433961450734273,
-      "date": "2024-07-23T12:19:34.656Z",
-      "customer_id": "3",
-      "purchase_id": "2",
-      "amortization": 17.238705781912433,
-      "interest": 0.1952556688218401,
-      "status": true
-    },
-    {
-      "id": "4",
-      "value": 17.433961450734273,
-      "date": "2024-08-02T12:19:34.656Z",
-      "customer_id": "3",
-      "purchase_id": "2",
-      "amortization": 17.04563692394909,
-      "interest": 0.38832452678518337,
-      "status": true
-    },
-    {
-      "id": "5",
-      "value": 17.433961450734273,
-      "date": "2024-08-12T12:19:34.656Z",
-      "customer_id": "3",
-      "purchase_id": "2",
-      "amortization": 16.854730385152095,
-      "interest": 0.579231065582178,
-      "status": true
-    },
-    {
-      "id": "6",
-      "value": 16.181225362313878,
-      "date": "2024-07-04T12:19:03.458Z",
-      "customer_id": "1",
-      "purchase_id": "3",
-      "amortization": 16,
-      "interest": 0.18122536231387798,
-      "status": false
-    },
-    {
-      "id": "11",
-      "value": 25.31061297757168,
-      "date": "2024-08-14T02:24:00.486Z",
-      "customer_id": "5",
-      "purchase_id": "4",
-      "amortization": 23.151913182130897,
-      "interest": 2.158699795440782,
-      "status": false
-    },
-    {
-      "id": "7",
-      "value": 25.31061297757168,
-      "date": "2024-07-05T02:24:00.486Z",
-      "customer_id": "5",
-      "purchase_id": "4",
-      "amortization": 24.86334221299529,
-      "interest": 0.44727076457639114,
-      "status": false
-    },
-    {
-      "id": "8",
-      "value": 25.31061297757168,
-      "date": "2024-07-15T02:24:00.486Z",
-      "customer_id": "5",
-      "purchase_id": "4",
-      "amortization": 24.423975292431763,
-      "interest": 0.8866376851399167,
-      "status": false
-    },
-    {
-      "id": "9",
-      "value": 25.31061297757168,
-      "date": "2024-07-25T02:24:00.486Z",
-      "customer_id": "5",
-      "purchase_id": "4",
-      "amortization": 23.992372544891786,
-      "interest": 1.318240432679893,
-      "status": false
-    },
-    {
-      "id": "10",
-      "value": 25.31061297757168,
-      "date": "2024-08-04T02:24:00.486Z",
-      "customer_id": "5",
-      "purchase_id": "4",
-      "amortization": 23.5683967675503,
-      "interest": 1.742216210021379,
-      "status": false
-    },
-    {
-      "id": "12",
-      "value": 50.119834619101525,
-      "date": "2024-07-07T19:53:24.837Z",
-      "customer_id": "6",
-      "purchase_id": "5",
-      "amortization": 50,
-      "interest": 0.11983461910152471,
-      "status": true
-    },
-    {
-      "id": "13",
-      "value": 40.09586769528122,
-      "date": "2024-07-03T12:19:34.656Z",
-      "customer_id": "3",
-      "purchase_id": "6",
-      "amortization": 40,
-      "interest": 0.09586769528122119,
-      "status": false
-    },
-    {
-      "id": "14",
       "value": 200.4793384764061,
-      "date": "2024-06-30T12:19:42.488Z",
-      "customer_id": "4",
-      "purchase_id": "7",
+      "date": "2024-07-07T21:48:03.671Z",
+      "customer_id": "1",
+      "purchase_id": "1",
       "amortization": 200,
       "interest": 0.47933847640609883,
       "status": false
@@ -201,82 +36,10 @@
   "purchases": [
     {
       "id": "1",
-      "value": 20,
-      "detail": "- Yogurt\n- Leche de almendra",
-      "customer_id": "2",
-      "date": "2024-06-24T12:29:43.112Z",
-      "grace_periods": false,
-      "status": false,
-      "type_of_credit": "2",
-      "periods": 2,
-      "periods_left": 2
-    },
-    {
-      "id": "2",
-      "value": 50,
-      "detail": "- 6 paquetes de galletas",
-      "customer_id": "3",
-      "date": "2024-06-24T12:31:58.689Z",
-      "grace_periods": true,
-      "status": false,
-      "type_of_credit": "2",
-      "periods": 3,
-      "periods_left": 3
-    },
-    {
-      "id": "3",
-      "value": 16,
-      "detail": "2 Inkachips",
-      "customer_id": "1",
-      "date": "2024-06-24T12:39:09.654Z",
-      "grace_periods": false,
-      "status": false,
-      "type_of_credit": 1,
-      "periods": 1,
-      "periods_left": 1
-    },
-    {
-      "id": "4",
-      "value": 120,
-      "detail": "",
-      "customer_id": "5",
-      "date": "2024-06-25T02:26:41.107Z",
-      "grace_periods": false,
-      "status": false,
-      "type_of_credit": "2",
-      "periods": 5,
-      "periods_left": 5
-    },
-    {
-      "id": "5",
-      "value": 50,
-      "detail": "1 Mouse Gamer",
-      "customer_id": "6",
-      "date": "2024-06-27T19:55:46.591Z",
-      "grace_periods": false,
-      "status": false,
-      "type_of_credit": 1,
-      "periods": 1,
-      "periods_left": 1
-    },
-    {
-      "id": "6",
-      "value": 40,
-      "detail": "1 Mesa",
-      "customer_id": "3",
-      "date": "2024-06-27T20:41:47.509Z",
-      "grace_periods": false,
-      "status": false,
-      "type_of_credit": 1,
-      "periods": 1,
-      "periods_left": 1
-    },
-    {
-      "id": "7",
       "value": 200,
-      "detail": "Table",
-      "customer_id": "4",
-      "date": "2024-06-27T21:37:36.997Z",
+      "detail": "1 Audífono",
+      "customer_id": "1",
+      "date": "2024-06-27T21:48:43.388Z",
       "grace_periods": false,
       "status": false,
       "type_of_credit": 1,
