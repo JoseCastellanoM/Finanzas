@@ -104,7 +104,7 @@ export class CashRegisterComponent {
       this.new_purchase.periods = (this.payment_method == 2) ? this.new_purchase.periods : 1;
       this.new_purchase.periods_left = this.new_purchase.periods;
       
-      this.payment_service.getPayments().subscribe(data => {
+      this.payment_service.getPaymentsByCustomerId(this.selected_customer.id).subscribe(data => {
         let credit_limit = this.global_user.credit_limit;
         let pendient_payments : Payment[] = [];
   
@@ -138,24 +138,26 @@ export class CashRegisterComponent {
           this.success_message = "Compra Registrada"; // ADD: Set success message
         });
 
-        let new_payment : Payment = new Payment;
-        let equivalent_interest_rate = (this.global_user.interest_type == 1) ? (this.global_user.interest_rate * this.global_user.payment_time / 360) : ((1 + this.global_user.interest_rate)**(this.global_user.payment_time/360)-1);
-        new_payment.value = this.new_purchase.value * (equivalent_interest_rate*(1 + equivalent_interest_rate)**this.new_purchase.periods) / ((1 + equivalent_interest_rate)**this.new_purchase.periods - 1);  
-        new_payment.value = new_payment.value * (1 + equivalent_interest_rate)**(this.new_purchase.grace_periods ? this.global_user.grace_periods : 0)
-        for (let i = 1; i <= this.new_purchase.periods; i++) {
-          new_payment.id = `${data.length + i}`;
-          new_payment.customer_id = this.selected_customer.id;
-          new_payment.purchase_id = this.new_purchase.id;
-          new_payment.amortization = new_payment.value / ((1 + equivalent_interest_rate)**i);
-          new_payment.interest =  new_payment.value - new_payment.amortization;
-          new_payment.status = false;
-          new_payment.date = this.get_last_payment_date(this.selected_customer.payment_date, new Date(Date.now()), this.global_user.payment_time);
-          new_payment.date.setDate(new_payment.date.getDate() + ((i + (this.new_purchase.grace_periods == true ? this.global_user.grace_periods : 0)) * this.global_user.payment_time));
-          
-          this.payment_service.createPayment(new_payment).subscribe(data => {
+        this.payment_service.getPayments().subscribe(data =>{
+          let new_payment : Payment = new Payment;
+          let equivalent_interest_rate = (this.global_user.interest_type == 1) ? (this.global_user.interest_rate * this.global_user.payment_time / 360) : ((1 + this.global_user.interest_rate)**(this.global_user.payment_time/360)-1);
+          new_payment.value = this.new_purchase.value * (equivalent_interest_rate*(1 + equivalent_interest_rate)**this.new_purchase.periods) / ((1 + equivalent_interest_rate)**this.new_purchase.periods - 1);  
+          new_payment.value = new_payment.value * (1 + equivalent_interest_rate)**(this.new_purchase.grace_periods ? this.global_user.grace_periods : 0)
+          for (let i = 1; i <= this.new_purchase.periods; i++) {
+            new_payment.id = `${data.length + i}`;
+            new_payment.customer_id = this.selected_customer.id;
+            new_payment.purchase_id = this.new_purchase.id;
+            new_payment.amortization = new_payment.value / ((1 + equivalent_interest_rate)**i);
+            new_payment.interest =  new_payment.value - new_payment.amortization;
+            new_payment.status = false;
+            new_payment.date = this.get_last_payment_date(this.selected_customer.payment_date, new Date(Date.now()), this.global_user.payment_time);
+            new_payment.date.setDate(new_payment.date.getDate() + ((i + (this.new_purchase.grace_periods == true ? this.global_user.grace_periods : 0)) * this.global_user.payment_time));
             
-          });
-        }
+            this.payment_service.createPayment(new_payment).subscribe(data => {
+              
+            });
+          }
+        })
         
       })
     })

@@ -186,6 +186,16 @@
       "amortization": 40,
       "interest": 0.09586769528122119,
       "status": false
+    },
+    {
+      "id": "14",
+      "value": 200.4793384764061,
+      "date": "2024-06-30T12:19:42.488Z",
+      "customer_id": "4",
+      "purchase_id": "7",
+      "amortization": 200,
+      "interest": 0.47933847640609883,
+      "status": false
     }
   ],
   "purchases": [
@@ -255,6 +265,18 @@
       "detail": "1 Mesa",
       "customer_id": "3",
       "date": "2024-06-27T20:41:47.509Z",
+      "grace_periods": false,
+      "status": false,
+      "type_of_credit": 1,
+      "periods": 1,
+      "periods_left": 1
+    },
+    {
+      "id": "7",
+      "value": 200,
+      "detail": "Table",
+      "customer_id": "4",
+      "date": "2024-06-27T21:37:36.997Z",
       "grace_periods": false,
       "status": false,
       "type_of_credit": 1,
