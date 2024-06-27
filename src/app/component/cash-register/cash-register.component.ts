@@ -23,6 +23,10 @@ export class CashRegisterComponent {
   selected_customer : Customer = new Customer;
   customer_payments : Payment[] = [];
   new_purchase : Purchase = new Purchase;
+
+  // ADD: Properties to store messages
+  success_message: string = "";
+  error_message: string = "";
   
   constructor(private user_service : UserService, private customer_service : CustomerService, private purchase_service : PurchaseService, private payment_service : PaymentService){
     /* TODO: Validaciones para la caja
@@ -77,6 +81,19 @@ export class CashRegisterComponent {
   }
   
   register_purchase() : void {
+    this.success_message = ""; // ADD: Clear previous messages
+    this.error_message = ""; // ADD: Clear previous messages
+
+    if (!(this.new_purchase.value >= 1)) {
+      this.error_message = "Incorrecto monto de compra"; // ADD: Set error message
+      return;
+    }
+
+    if (!this.new_purchase.detail || this.new_purchase.detail.trim() === "") {
+      this.error_message = "Descripción incorrecta"; // ADD: Set error message
+      return;
+    }
+
     this.purchase_service.getPurchases().subscribe(data_purchases => {
       this.new_purchase.id = `${data_purchases.length + 1}`;
       this.new_purchase.customer_id = this.selected_customer.id;
@@ -103,10 +120,7 @@ export class CashRegisterComponent {
           }
         })
 
-        if(!(this.new_purchase.value >= 1)) {
-          console.log("Incorrecto monto de compra")
-        }
-  
+
         if (pendient_payments.length > 0) {
           console.log("Tienes pagos pendientes: ");
           console.log(pendient_payments);
@@ -121,6 +135,7 @@ export class CashRegisterComponent {
         // Then we create purchase and payments
         this.purchase_service.createPurchase(this.new_purchase).subscribe(data => {
           console.log("Nueva compra creada");
+          this.success_message = "Compra Registrada"; // ADD: Set success message
         });
 
         let new_payment : Payment = new Payment;

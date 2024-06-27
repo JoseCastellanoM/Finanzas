@@ -2,12 +2,12 @@
   "user": [
     {
       "id": "1",
-      "username": "joc",
+      "username": "juan",
       "password": "joc",
       "interest_rate": 0.09,
       "interest_type": 2,
       "moratorium_interest_rate": 0.09,
-      "credit_limit": 300,
+      "credit_limit": 310,
       "grace_periods": 2,
       "payment_time": 10
     }
@@ -47,6 +47,13 @@
       "dni": 87654321,
       "phone": 987654321,
       "payment_date": "2024-06-25T02:24:00.486Z"
+    },
+    {
+      "id": "6",
+      "name": "Juan Carlos Saravia Inga",
+      "dni": 76344343,
+      "phone": 913234138,
+      "payment_date": "2024-06-27T19:53:24.837Z"
     }
   ],
   "payments": [
@@ -58,7 +65,7 @@
       "purchase_id": "1",
       "amortization": 10.056314003047882,
       "interest": 0.11390369679653034,
-      "status": false
+      "status": true
     },
     {
       "id": "2",
@@ -68,7 +75,7 @@
       "purchase_id": "1",
       "amortization": 9.943685996952064,
       "interest": 0.22653170289234836,
-      "status": false
+      "status": true
     },
     {
       "id": "3",
@@ -88,7 +95,7 @@
       "purchase_id": "2",
       "amortization": 17.04563692394909,
       "interest": 0.38832452678518337,
-      "status": false
+      "status": true
     },
     {
       "id": "5",
@@ -98,7 +105,7 @@
       "purchase_id": "2",
       "amortization": 16.854730385152095,
       "interest": 0.579231065582178,
-      "status": false
+      "status": true
     },
     {
       "id": "6",
@@ -159,6 +166,26 @@
       "amortization": 23.5683967675503,
       "interest": 1.742216210021379,
       "status": false
+    },
+    {
+      "id": "12",
+      "value": 50.119834619101525,
+      "date": "2024-07-07T19:53:24.837Z",
+      "customer_id": "6",
+      "purchase_id": "5",
+      "amortization": 50,
+      "interest": 0.11983461910152471,
+      "status": true
+    },
+    {
+      "id": "13",
+      "value": 40.09586769528122,
+      "date": "2024-07-03T12:19:34.656Z",
+      "customer_id": "3",
+      "purchase_id": "6",
+      "amortization": 40,
+      "interest": 0.09586769528122119,
+      "status": false
     }
   ],
   "purchases": [
@@ -209,6 +236,30 @@
       "type_of_credit": "2",
       "periods": 5,
       "periods_left": 5
+    },
+    {
+      "id": "5",
+      "value": 50,
+      "detail": "1 Mouse Gamer",
+      "customer_id": "6",
+      "date": "2024-06-27T19:55:46.591Z",
+      "grace_periods": false,
+      "status": false,
+      "type_of_credit": 1,
+      "periods": 1,
+      "periods_left": 1
+    },
+    {
+      "id": "6",
+      "value": 40,
+      "detail": "1 Mesa",
+      "customer_id": "3",
+      "date": "2024-06-27T20:41:47.509Z",
+      "grace_periods": false,
+      "status": false,
+      "type_of_credit": 1,
+      "periods": 1,
+      "periods_left": 1
     }
   ]
 }

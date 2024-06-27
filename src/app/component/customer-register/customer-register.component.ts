@@ -14,7 +14,8 @@ export class CustomerRegisterComponent {
   global_user : User = new User;
   min_date : Date = new Date(Date.now());
   max_date : Date = new Date(Date.now());
-  
+  success_message: boolean = false;
+  error_message: boolean = false;
 
   constructor(private customer_service : CustomerService, private user_service : UserService) {
     
@@ -34,10 +35,13 @@ export class CustomerRegisterComponent {
   }
 
   register_customer() : void{
-    
+    this.error_message = false;
+    this.success_message = false;
+
     if (!(this.new_customer.phone >= 900000000 && this.new_customer.phone <= 999999999)
       || !(this.new_customer.dni >= 10000000 && this.new_customer.dni <= 99999999)){
-      console.log("Incorrect user")
+      console.log("Incorrect user");
+      this.error_message = true;
       return;
     }
 
@@ -51,15 +55,20 @@ export class CustomerRegisterComponent {
       
       if (this.validate_customer(this.new_customer) == false) {
         console.log("Invalid customer");
+        this.error_message = true;
         return;
       }
 
       this.customer_service.createCustomer(this.new_customer).subscribe(response => {
         console.log("Customer created")
         console.log(response);
+        this.success_message = true;
+        setTimeout(() => {
+          this.success_message = false;
+        }, 3000); // El mensaje desaparecerá después de 3 segundos
         
-      })
-    })
+      });
+    });
 
   }
 

@@ -54,6 +54,12 @@
               Registrar
             </button>
           </div>
+          <div *ngIf="success_message" class="alert alert-success mt-4">
+            Cliente Registrado Correctamente
+          </div>
+          <div *ngIf="error_message" class="alert alert-danger mt-4">
+            Digite sus Datos
+          </div>
         </div>
       </div>
     </div>
