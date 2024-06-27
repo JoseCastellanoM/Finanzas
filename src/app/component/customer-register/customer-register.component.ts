@@ -14,11 +14,12 @@ export class CustomerRegisterComponent {
   global_user : User = new User;
   min_date : Date = new Date(Date.now());
   max_date : Date = new Date(Date.now());
-  success_message: boolean = false;
-  error_message: boolean = false;
+
+  success_message: string = "";
+  error_message: string = "";
 
   constructor(private customer_service : CustomerService, private user_service : UserService) {
-    
+
     this.new_customer = new Customer;
     this.user_service.getUser("1").subscribe(data => {
       this.global_user = data;
@@ -35,15 +36,15 @@ export class CustomerRegisterComponent {
   }
 
   register_customer() : void{
-    this.error_message = false;
-    this.success_message = false;
+    this.success_message = "";
+    this.error_message = "";
 
-    if (!(this.new_customer.phone >= 900000000 && this.new_customer.phone <= 999999999)
+    /*if (!(this.new_customer.phone >= 900000000 && this.new_customer.phone <= 999999999)
       || !(this.new_customer.dni >= 10000000 && this.new_customer.dni <= 99999999)){
       console.log("Incorrect user");
-      this.error_message = true;
+      this.error_message = "Usuario Incorrecto";
       return;
-    }
+    }*/
 
     this.customer_service.getCustomers().subscribe(data => {
       let aux_variable = new Date(this.new_customer.payment_date);
@@ -52,21 +53,21 @@ export class CustomerRegisterComponent {
       this.new_customer.payment_date.setFullYear(aux_variable.getUTCFullYear());
       this.new_customer.payment_date.setMonth(aux_variable.getUTCMonth());
       this.new_customer.payment_date.setDate(aux_variable.getUTCDate());
-      
+
       if (this.validate_customer(this.new_customer) == false) {
-        console.log("Invalid customer");
-        this.error_message = true;
+        console.log("Usuario Incorrecto");
+        this.error_message = "Usuario Incorrecto";
         return;
       }
 
       this.customer_service.createCustomer(this.new_customer).subscribe(response => {
         console.log("Customer created")
         console.log(response);
-        this.success_message = true;
+        this.success_message = "Cliente creado";
         setTimeout(() => {
-          this.success_message = false;
+          this.success_message = "Usuario Incorrecto";
         }, 3000); // El mensaje desaparecerá después de 3 segundos
-        
+
       });
     });
 
