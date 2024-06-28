@@ -147,6 +147,15 @@ export class CashRegisterComponent {
 
         if (this.new_purchase.value > credit_limit) {
           console.log("Tu actual limite de credito es: s" + credit_limit);
+          setTimeout(() => {
+            this.error_message = "Excedes tu límite de credito de "  + credit_limit;
+
+            // Hacer que el mensaje desaparezca después de 3 segundos
+            setTimeout(() => {
+              this.error_message = "";
+            }, 3000);
+
+          }, 0);
           return;
         }
 

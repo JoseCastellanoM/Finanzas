@@ -47,7 +47,13 @@
                 onmouseout="this.style.backgroundColor='#94E0E4'; this.style.borderColor='#94E0E4'; this.style.color='#112244';"
                 style="background-color: #94E0E4; border-color: #94E0E4; color: #112244;">
                 Ingresar
-              </button>
+                </button>
+                <div class="row spacer-3"></div>
+                <!-- error messages -->
+                    <div *ngIf="error_message" class="alert alert-danger" role="alert">
+                      {{ error_message }}
+                  </div>
+                  <!-------------------->
               </div>
             </div>
             <div class="row spacer-3"></div>
