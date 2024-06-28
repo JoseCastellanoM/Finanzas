@@ -26,7 +26,7 @@ export class ConfigurationComponent {
       && (user.moratorium_interest_rate >= 0.08 && user.moratorium_interest_rate <= 0.1)
       && (user.credit_limit >= 10 && user.credit_limit <= 500)
       && (user.grace_periods >= 1 && user.grace_periods <= 5)
-      && (user.payment_time >= 1 && user.payment_time <= 30)
+      && (user.payment_time >= 1 && user.payment_time <= 90)
     );
   }
 

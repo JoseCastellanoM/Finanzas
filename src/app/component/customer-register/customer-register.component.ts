@@ -31,7 +31,7 @@ export class CustomerRegisterComponent {
     return ( (customer.name != "")
       && (customer.dni >= 10000000 && customer.dni <= 99999999)
       && (customer.phone >= 900000000 && customer.phone <= 999999999)
-      && (customer.payment_date.getTime() <= Date.now())
+      && (customer.payment_date.getTime() == Date.now())
     );
   }
 
@@ -55,18 +55,33 @@ export class CustomerRegisterComponent {
       this.new_customer.payment_date.setDate(aux_variable.getUTCDate());
 
       if (this.validate_customer(this.new_customer) == false) {
-        console.log("Usuario Incorrecto");
-        this.error_message = "Usuario Incorrecto";
+        console.log("Datos Incorrectos");
+        setTimeout(() => {
+          this.error_message = "Datos incorrectos";
+
+          // Hacer que el mensaje desaparezca después de 3 segundos
+          setTimeout(() => {
+            this.error_message = "";
+          }, 3000);
+
+        }, 0);
+        //this.error_message = "Datos incorrectos";
         return;
       }
 
       this.customer_service.createCustomer(this.new_customer).subscribe(response => {
         console.log("Customer created")
         console.log(response);
-        this.success_message = "Cliente creado";
+        //this.success_message = "Cliente creado";
         setTimeout(() => {
-          this.success_message = "Usuario Incorrecto";
-        }, 3000); // El mensaje desaparecerá después de 3 segundos
+          this.success_message = "Cliente creado";
+
+          // Hacer que el mensaje desaparezca después de 3 segundos
+          setTimeout(() => {
+            this.success_message = "";
+          }, 3000);
+
+        }, 0);
 
       });
     });

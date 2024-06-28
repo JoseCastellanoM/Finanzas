@@ -17,8 +17,8 @@ export class CashRegisterComponent {
   value_selection : number = 1; // It stores the select value about purchase and payment register
   search_string : string = ""; // The search made by the user
   list_of_customers :  Customer[] = [] // it stores the list of customers showed in the table
-  payment_method : number = 1; // 
-  
+  payment_method : number = 1; //
+
   global_user : User = new User;
   selected_customer : Customer = new Customer;
   customer_payments : Payment[] = [];
@@ -27,7 +27,7 @@ export class CashRegisterComponent {
   // ADD: Properties to store messages
   success_message: string = "";
   error_message: string = "";
-  
+
   constructor(private user_service : UserService, private customer_service : CustomerService, private purchase_service : PurchaseService, private payment_service : PaymentService){
     /* TODO: Validaciones para la caja
       [ ] El valor de compra no puede ser menor o igual 0
@@ -66,11 +66,11 @@ export class CashRegisterComponent {
       console.log(data);
     });
   }
-  
+
   get_last_payment_date(first_date :  Date, last_date : Date, period : number) : Date {
     first_date = new Date(first_date);
     last_date = new Date(last_date);
-    
+
     return new Date(last_date.getTime() - (last_date.getTime() - first_date.getTime()) % (period * 24 * 60 * 60 * 1000))
   }
 
@@ -79,18 +79,36 @@ export class CashRegisterComponent {
     date2 = new Date(date2);
     return ((date1.getTime() - date2.getTime()) <= 0) ? date1 : date2;
   }
-  
+
   register_purchase() : void {
     this.success_message = ""; // ADD: Clear previous messages
     this.error_message = ""; // ADD: Clear previous messages
 
     if (!(this.new_purchase.value >= 1)) {
-      this.error_message = "Incorrecto monto de compra"; // ADD: Set error message
+      setTimeout(() => {
+        this.error_message = "Incorrecto monto de compra";
+
+        // Hacer que el mensaje desaparezca después de 3 segundos
+        setTimeout(() => {
+          this.error_message = "";
+        }, 3000);
+
+      }, 0);
+      //this.error_message = "Incorrecto monto de compra"; // ADD: Set error message
       return;
     }
 
     if (!this.new_purchase.detail || this.new_purchase.detail.trim() === "") {
-      this.error_message = "Descripción incorrecta"; // ADD: Set error message
+      setTimeout(() => {
+        this.error_message = "Descripción incorrecta";
+
+        // Hacer que el mensaje desaparezca después de 3 segundos
+        setTimeout(() => {
+          this.error_message = "";
+        }, 3000);
+
+      }, 0);
+      //this.error_message = "Descripción incorrecta"; // ADD: Set error message
       return;
     }
 
@@ -103,11 +121,11 @@ export class CashRegisterComponent {
       this.new_purchase.type_of_credit = this.payment_method;
       this.new_purchase.periods = (this.payment_method == 2) ? this.new_purchase.periods : 1;
       this.new_purchase.periods_left = this.new_purchase.periods;
-      
+
       this.payment_service.getPaymentsByCustomerId(this.selected_customer.id).subscribe(data => {
         let credit_limit = this.global_user.credit_limit;
         let pendient_payments : Payment[] = [];
-  
+
         // First we filter the payments to know what are the pendient payments that are not paid until now
         data.forEach(item => {
           // TODO: Use the moratorium payment to increment the value of the payments
@@ -126,7 +144,7 @@ export class CashRegisterComponent {
           console.log(pendient_payments);
           return;
         }
-  
+
         if (this.new_purchase.value > credit_limit) {
           console.log("Tu actual limite de credito es: s" + credit_limit);
           return;
@@ -135,13 +153,22 @@ export class CashRegisterComponent {
         // Then we create purchase and payments
         this.purchase_service.createPurchase(this.new_purchase).subscribe(data => {
           console.log("Nueva compra creada");
-          this.success_message = "Compra Registrada"; // ADD: Set success message
+          setTimeout(() => {
+            this.success_message = "Compra Registrada";
+
+            // Hacer que el mensaje desaparezca después de 3 segundos
+            setTimeout(() => {
+              this.success_message = "";
+            }, 3000);
+
+          }, 0);
+          //this.success_message = "Compra Registrada"; // ADD: Set success message
         });
 
         this.payment_service.getPayments().subscribe(data =>{
           let new_payment : Payment = new Payment;
           let equivalent_interest_rate = (this.global_user.interest_type == 1) ? (this.global_user.interest_rate * this.global_user.payment_time / 360) : ((1 + this.global_user.interest_rate)**(this.global_user.payment_time/360)-1);
-          new_payment.value = this.new_purchase.value * (equivalent_interest_rate*(1 + equivalent_interest_rate)**this.new_purchase.periods) / ((1 + equivalent_interest_rate)**this.new_purchase.periods - 1);  
+          new_payment.value = this.new_purchase.value * (equivalent_interest_rate*(1 + equivalent_interest_rate)**this.new_purchase.periods) / ((1 + equivalent_interest_rate)**this.new_purchase.periods - 1);
           new_payment.value = new_payment.value * (1 + equivalent_interest_rate)**(this.new_purchase.grace_periods ? this.global_user.grace_periods : 0)
           for (let i = 1; i <= this.new_purchase.periods; i++) {
             new_payment.id = `${data.length + i}`;
@@ -152,16 +179,16 @@ export class CashRegisterComponent {
             new_payment.status = false;
             new_payment.date = this.get_last_payment_date(this.selected_customer.payment_date, new Date(Date.now()), this.global_user.payment_time);
             new_payment.date.setDate(new_payment.date.getDate() + ((i + (this.new_purchase.grace_periods == true ? this.global_user.grace_periods : 0)) * this.global_user.payment_time));
-            
+
             this.payment_service.createPayment(new_payment).subscribe(data => {
-              
+
             });
           }
         })
-        
+
       })
     })
-    
+
   }
 
   pay_due(payment : Payment) {
