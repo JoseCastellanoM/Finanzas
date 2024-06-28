@@ -164,7 +164,7 @@
               <td>S/. {{item.amortization.toFixed(2)}}</td>
               <td>S/. {{item.value.toFixed(2)}}</td>
               <td>
-                <button type="button" class="btn" [ngClass]="{'btn-warning': !item.status, 'btn-secondary': item.status}" [disabled]="item.status">{{item.status ? "Pagado" : "Pagar"}}</button>
+                <button type="button" class="btn" [ngClass]="{'btn-info': !item.status, 'btn-secondary': item.status}" [disabled]="item.status">{{item.status ? "Pagado" : "Pagar"}}</button>
               </td>
             </tr>
           </tbody>
